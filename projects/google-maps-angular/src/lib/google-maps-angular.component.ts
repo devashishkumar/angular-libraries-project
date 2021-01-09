@@ -9,10 +9,10 @@ declare var google: any;
 export class GoogleMapsAngularComponent implements OnInit {
   @Input() latLong: any = {};
   @Output() markerClickEvent = new EventEmitter();
+  @Input() markers = [];
   radius: any = 2;
   nMap: any = {};
   divId: string = '';
-  @Input() markers = [];
   customMarkers = [];
 
   constructor() { }
@@ -30,7 +30,7 @@ export class GoogleMapsAngularComponent implements OnInit {
   loadMap() {
     let googleInit = this.getGoogleInitData(this.latLong.lat, this.latLong.long);
     this.nMap = new google.maps.Map(document.getElementById(this.divId), googleInit);
-    this.findClosestLocations(this.latLong);
+    this.renderMarkers(this.latLong);
   }
 
   /**
@@ -64,7 +64,7 @@ export class GoogleMapsAngularComponent implements OnInit {
    * get closest latitudes/longitudes
    * @param event object
    */
-  findClosestLocations(event) {
+  renderMarkers(event) {
     var lat = event.long;
     var lng = event.long;
     var R = this.radius; // radius of earth in km
