@@ -1,6 +1,9 @@
 {
   "name": "ashish-gmap-library",
   "version": "0.0.0",
+  "engines": {
+    "node": "12.6.1"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
