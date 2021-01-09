@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 declare var google: any;
 
 @Component({
@@ -8,8 +8,12 @@ declare var google: any;
 })
 export class GoogleMapsAngularComponent implements OnInit {
   @Input() latLong: any = {};
+  @Output() markerClickEvent = new EventEmitter();
+  radius: any = 2;
   nMap: any = {};
   divId: string = '';
+  @Input() markers = [];
+  customMarkers = [];
 
   constructor() { }
 
@@ -26,6 +30,7 @@ export class GoogleMapsAngularComponent implements OnInit {
   loadMap() {
     let googleInit = this.getGoogleInitData(this.latLong.lat, this.latLong.long);
     this.nMap = new google.maps.Map(document.getElementById(this.divId), googleInit);
+    this.findClosestLocations(this.latLong);
   }
 
   /**
@@ -46,13 +51,51 @@ export class GoogleMapsAngularComponent implements OnInit {
    * @param length number
    */
   generateDynamicString(length) {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
- }
+  }
+
+  /**
+   * get closest latitudes/longitudes
+   * @param event object
+   */
+  findClosestLocations(event) {
+    var lat = event.long;
+    var lng = event.long;
+    var R = this.radius; // radius of earth in km
+    
+    // window.console.log(this.nMap.marker, '70');
+    // return;
+    for (let i = 0; i < this.markers.length; i++) {
+      const currentLat = this.markers[i].lat;
+      const currentLong = this.markers[i].long;
+      const currentType = this.markers[i].type;
+
+      const marker = new google.maps.Marker({
+        position: new google.maps.LatLng(currentLat, currentLong),
+        map: this.nMap,
+        label: {
+          text: currentType,
+          fontWeight: 'normal',
+          fontSize: '14px',
+          color: 'white'
+        }
+      });
+
+      marker.setValues({ id: i, type: currentType });
+			((marker, l) => {
+				google.maps.event.addListener(marker, 'click', () => {
+          // window.console.log(l, this.markers[l], '119');
+          this.markerClickEvent.emit({rowClicked: l});
+				});
+			})(marker, i);
+			this.customMarkers.push(marker);
+    }
+  }
 
 }
