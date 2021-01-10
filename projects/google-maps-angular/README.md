@@ -1,6 +1,6 @@
 ## Documentation
 
-This library is use to render google maps in your application. you will have to pass 'latLong' as a input to display google maps in your application. you you want to add markers of your nearyby locations you will have to pass markers data as per the below defined format. when user click on any particular marker an event will execute and user will notify on which marker user has been clicked
+This library is use to render google maps in your application. you will have to pass 'latLong' as a input to display google maps in your application. in case you want to add markers of your map neary by locations you will have to pass markers data as per the below defined format. when user click on any particular marker an event will execute and user will notify on which marker user has been clicked
 
 ### Installation
 
