@@ -21,26 +21,32 @@ export class AppComponent implements OnInit {
   //   lat: 26.4492,
   //   long: 80.3094
   // };
+
   markers = [
     {
-      lat: 28.5849,
-      long: 77.3791,
-      type: 'test1'
+      lat: 28.5661,
+      long: 77.3698,
+      type: 'Shiv Mandir Barola'
     },
     {
-      lat: 28.5857,
-      long: 77.3753,
-      type: 'test2'
+      lat: 28.5666,
+      long: 77.3664,
+      type: 'Budh Bazaar'
     },
     {
-      lat: 28.5720,
-      long: 77.3694,
-      type: 'test3'
+      lat: 28.5636,
+      long: 77.3656,
+      type: 'Prayag Hospital'
     },
     {
-      lat: 28.5867,
-      long: 77.3728,
-      type: 'test4'
+      lat: 28.5579,
+      long: 77.3726,
+      type: 'Shri Ram Hospital'
+    },
+    {
+      lat: 28.5640,
+      long: 77.3780,
+      type: 'Post Office Barola'
     }
   ];
   nMap: any = {};
