@@ -15,7 +15,7 @@ Then import google maps javascript library in your html file and replace yourKey
 import { GoogleMapsAngularModule } from 'google-maps-angular';
 import library and use GoogleMapsAngularModule in imports array
 
-### How we use google-maps-angular library in components:
+### How we use google-maps-angular library in our applications
 
 <google-maps-angular (markerClickEvent)="yourMethod($event)" [markers]="markers" [latLong]="latLong"></google-maps-angular>
 
