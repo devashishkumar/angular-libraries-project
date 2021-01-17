@@ -1,4 +1,8 @@
-## Documentation
+### What's new in version 1.5.0
+
+we can pass custom markers icons and add font color/weight as per our requirements. The most important thing we don't need to add google map script in our html file with api key. we just need to pass that particular key in our component as an input. Here are updated document
+
+### Documentation
 
 This library is use to render google maps in your application. you will have to pass 'latLong' as a input to display google maps in your application. in case you want to add markers of your map neary by locations you will have to pass markers data as per the below defined format. when user click on any particular marker an event will execute and user will notify on which marker user has been clicked
 
@@ -7,8 +11,6 @@ This library is use to render google maps in your application. you will have to 
 ```sh
 npm install google-maps-angular
 ```
-Then import google maps javascript library in your html file and replace yourKey with your google maps api key
-<script src="https://maps.googleapis.com/maps/api/js?key=yourKey&**callback=initMap"></script>
 
 ### in app.module following changes required
 
@@ -17,7 +19,8 @@ import library and use GoogleMapsAngularModule in imports array
 
 ### How we use google-maps-angular library in our applications
 
-<google-maps-angular (markerClickEvent)="yourMethod($event)" [markers]="markers" [latLong]="latLong"></google-maps-angular>
+<google-maps-angular (markerClickEvent)="markerClicked($event)" [markers]="markers"
+    [latLong]="latLong" [apiKey]="'your google api key'" [googleMapDefaultIcon]="googleMapDefaultIcon"></google-maps-angular>
 
 ### latLong will be input in the following format
 
@@ -30,25 +33,31 @@ latLong = {
 
 markers = [
     {
-      lat: your latitude,
-      long: your longitude,
-      type: 'your text which will display in the marker'
+      lat: your marker latitude,
+      long: your marker longitude,
+      labelDetails: {
+        text: 'Marker Text display on marker this is required',
+        fontWeight: 'normal',
+        fontSize: '12px',
+        color: 'white'
+      }
     }
   ];
 
-| Input | input purpose |
-| ------ | ------ |
-| latLong | This is an object in which we will pass lat/long to display map of that particular area |
-| markers | we will pass as an array in case we want to display neary by markers in that particular map |
+### Inputs
 
-### markerClickEvent emitter
+| Input | Purpose |
+| ------ | ------ |
+| apiKey:required | This is a google maps api key |
+| latLong:required | This is an object in which we will pass lat/long to display map of that particular area |
+| googleMapDefaultIcon:optional | custom icon path which you want to display as a marker icon |
+| markers:optional | we will pass as an array in case we want to display neary by markers in that particular map |
+
+### Events
 
 | Output | Output purpose |
 | ------ | ------ |
-| markerClickEvent | This emitter will trigger when user click on any particular marker and return that particular marker information|
+| markerClicked | This emitter will trigger when user click on any particular marker and return that particular marker information|
 
 ### [Demo](https://googlemapsangulardemo.herokuapp.com/)
-
-### In Progress Features
-Working on marker custom icons. user can pass custom icons for markers in case they don't want to display google default marker icons.
 

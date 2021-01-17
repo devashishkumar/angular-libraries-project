@@ -1,6 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { GoogleMapsAngularComponent} from 'google-maps-angular';
-declare var google: any;
 
 @Component({
   selector: 'app-root',
@@ -9,6 +7,8 @@ declare var google: any;
 })
 export class AppComponent implements OnInit {
   title = 'ashish-gmap-library';
+  googleMapDefaultIcon = 'assets/images/map_pointer.svg';
+  googleMapActiveIcon = 'assets/images/map_pointer_active.svg';
   // lat: any = 28.5636;
   // long: any = 77.3726;
   // noida sector 49 lat/long
@@ -26,27 +26,52 @@ export class AppComponent implements OnInit {
     {
       lat: 28.5661,
       long: 77.3698,
-      type: 'Shiv Mandir Barola'
+      labelDetails: {
+        text: 'Shiv Mandir Barola',
+        fontWeight: 'normal',
+        fontSize: '12px',
+        color: 'white'
+      }
     },
     {
       lat: 28.5666,
       long: 77.3664,
-      type: 'Budh Bazaar'
+      labelDetails: {
+        text: 'Budh Bazaar',
+        fontWeight: 'normal',
+        fontSize: '12px',
+        color: 'white'
+      }
     },
     {
       lat: 28.5636,
       long: 77.3656,
-      type: 'Prayag Hospital'
+      labelDetails: {
+        text: 'Prayag Hospital',
+        fontWeight: 'normal',
+        fontSize: '12px',
+        color: 'white'
+      }
     },
     {
       lat: 28.5579,
       long: 77.3726,
-      type: 'Shri Ram Hospital'
+      labelDetails: {
+        text: 'Shri Ram Hospital',
+        fontWeight: 'normal',
+        fontSize: '12px',
+        color: 'white'
+      }
     },
     {
       lat: 28.5640,
       long: 77.3780,
-      type: 'Post Office Barola'
+      labelDetails: {
+        text: 'Post Office Barola',
+        fontWeight: 'normal',
+        fontSize: '12px',
+        color: 'white'
+      }
     }
   ];
   nMap: any = {};
@@ -60,5 +85,6 @@ export class AppComponent implements OnInit {
    */
   markerClicked(data) {
     console.log(data, '53');
+    // alert('Please check browser console to get click marker information');
   }
 }

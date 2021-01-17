@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="42px" viewBox="0 0 40 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>map_pointer_default copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FF9D46" offset="0%"></stop>
+            <stop stop-color="#CD6509" offset="100%"></stop>
+        </linearGradient>
+        <path d="M0,0 L33.0367505,0 L33.0367505,-8.8817842e-16 C36.882447,-1.59462141e-15 40,3.117553 40,6.96324952 L40,22.1276596 L40,22.1276596 C40,25.9733561 36.882447,29.0909091 33.0367505,29.0909091 L0,29.0909091 L0,0 Z" id="path-2"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="map_pointer_default-copy-2">
+            <polygon id="Rectangle-3" fill="url(#linearGradient-1)" points="0 24.2424242 16.969697 24.2424242 0 41.2121212"></polygon>
+            <polygon id="Rectangle-3" fill="#0852A8" opacity="0.340409873" points="0 24.2424242 16.969697 24.2424242 9.15120563 32.7272727 0 29.9330912"></polygon>
+            <g id="Rectangle">
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <path stroke="#ED8222" stroke-width="2" d="M1,1 L1,28.0909091 L33.0367505,28.0909091 C36.3301623,28.0909091 39,25.4210713 39,22.1276596 L39,6.96324952 C39,3.66983775 36.3301623,1 33.0367505,1 L1,1 Z"></path>
+            </g>
+            
+        </g>
+    </g>
+</svg>

@@ -22,7 +22,6 @@
     "@types/googlemaps": "^3.43.1",
     "angular2-google-maps": "^0.17.0",
     "ashish-angular-google-maps": "file:dist/ashish-angular-google-maps",
-    "google-maps-angular": "0.0.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

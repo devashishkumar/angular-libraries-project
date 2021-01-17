@@ -1,6 +1,6 @@
 {
   "name": "google-maps-angular",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "peerDependencies": {
     "@angular/common": "^9.1.13",
     "@angular/core": "^9.1.13"
@@ -12,7 +12,9 @@
     "angular",
     "google maps",
     "angular google maps",
-    "google maps markers"
+    "google maps angular",
+    "angular google maps markers",
+    "google maps markers angular"
   ],
   "license": "MIT"
 }

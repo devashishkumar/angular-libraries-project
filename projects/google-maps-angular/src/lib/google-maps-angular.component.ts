@@ -8,20 +8,31 @@ declare var google: any;
 })
 export class GoogleMapsAngularComponent implements OnInit {
   @Input() latLong: any = {};
-  @Output() markerClickEvent = new EventEmitter();
+  @Output() markerClicked = new EventEmitter();
   @Input() markers = [];
   radius: any = 2;
   nMap: any = {};
   divId: string = '';
   customMarkers = [];
+  @Input() googleMapDefaultIcon = '';
+  @Input() googleMapActiveIcon = '';
+  @Input() apiKey = '';
 
   constructor() { }
 
   ngOnInit(): void {
+    const googleMapScript = document.createElement("SCRIPT");
+    googleMapScript.setAttribute(
+      "src",
+      `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&**callback=initMap`
+    );
+    googleMapScript.setAttribute("defer", "");
+    googleMapScript.setAttribute("async", "");
+    document.head.appendChild(googleMapScript);
     this.divId = this.generateDynamicString(10);
     setTimeout(() => {
       this.loadMap();
-    }, 0);
+    }, 2000);
   }
 
   /**
@@ -60,15 +71,26 @@ export class GoogleMapsAngularComponent implements OnInit {
     return result;
   }
 
+  markerIconConfiguration(currIcon, labelX) {
+    return {
+      url: currIcon,
+      size: new google.maps.Size(45, 45),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(0, 20),
+      // scaledSize: new google.maps.Size(defaultSize, defaultSize),
+      labelOrigin: new google.maps.Point(labelX, 15.5),
+    }
+  }
+
   /**
    * get closest latitudes/longitudes
    * @param event object
    */
   renderMarkers(event) {
-    var lat = event.long;
-    var lng = event.long;
-    var R = this.radius; // radius of earth in km
-    
+    const lat = event.long;
+    const lng = event.long;
+    const R = this.radius; // radius of earth in km
+
     // window.console.log(this.nMap.marker, '70');
     // return;
     for (let i = 0; i < this.markers.length; i++) {
@@ -79,22 +101,19 @@ export class GoogleMapsAngularComponent implements OnInit {
       const marker = new google.maps.Marker({
         position: new google.maps.LatLng(currentLat, currentLong),
         map: this.nMap,
-        label: {
-          text: currentType,
-          fontWeight: 'normal',
-          fontSize: '14px',
-          color: 'white'
-        }
+        icon: this.googleMapDefaultIcon ?
+        this.markerIconConfiguration(this.googleMapDefaultIcon, 22) : '',
+        label: this.markers && this.markers[i] ? this.markers[i].labelDetails : {}
       });
 
       marker.setValues({ id: i, type: currentType });
-			((marker, l) => {
-				google.maps.event.addListener(marker, 'click', () => {
-          // window.console.log(l, this.markers[l], '119');
-          this.markerClickEvent.emit({rowClicked: l});
-				});
-			})(marker, i);
-			this.customMarkers.push(marker);
+      ((marker, l) => {
+        google.maps.event.addListener(marker, 'click', () => {
+          // marker.setIcon(this.googleMapActiveIcon, 48, 22);
+          this.markerClicked.emit({ rowClicked: l });
+        });
+      })(marker, i);
+      this.customMarkers.push(marker);
     }
   }
 

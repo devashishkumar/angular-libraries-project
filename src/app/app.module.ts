@@ -3,19 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import {GoogleMapsAngularComponent} from './../../projects/google-maps-angular/src/lib/google-maps-angular.component';
-import { GoogleMapsAngularModule } from 'google-maps-angular';
+import {GoogleMapsAngularComponent} from './../../projects/google-maps-angular/src/lib/google-maps-angular.component';
+// import { GoogleMapsAngularModule } from 'google-maps-angular';
 
 @NgModule({
   declarations: [
-    AppComponent
-    // GoogleMapsAngularComponent
+    AppComponent,
+    GoogleMapsAngularComponent
   ], exports: [
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    GoogleMapsAngularModule
+    AppRoutingModule
+    // GoogleMapsAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]
