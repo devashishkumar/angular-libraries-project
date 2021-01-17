@@ -1,4 +1,4 @@
-### What's new in version 1.6.0
+### What's new in version 1.7.0
 
 we can pass custom markers icons and add font color/weight as per our requirements. The most important thing we don't need to add google map script in our html file with api key. we just need to pass that particular key in our component as an input. Here are updated document
 
@@ -55,7 +55,7 @@ markers = [
 
 ### Events
 
-| Output | Output purpose |
+| Output | Purpose |
 | ------ | ------ |
 | markerClicked | This emitter will trigger when user click on any particular marker and return that particular marker information|
 
