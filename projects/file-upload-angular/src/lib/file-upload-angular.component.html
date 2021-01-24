@@ -1,0 +1,8 @@
+<div *ngIf="config">
+    <input type="file" [attr.id]="divId" style="display: none" [attr.name]="'files[]'" [multiple]="multiple"
+        [attr.accept]="config.formatsAllowed" (change)="onChange($event)" />
+
+    <button class="btn btn-primary btn-sm afu-select-btn customClass" (click)="triggerFilesControl()">
+        Select Files To Upload
+    </button>
+</div>

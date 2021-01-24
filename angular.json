@@ -199,6 +199,46 @@
           }
         }
       }
+    },
+    "file-upload-angular": {
+      "projectType": "library",
+      "root": "projects/file-upload-angular",
+      "sourceRoot": "projects/file-upload-angular/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/file-upload-angular/tsconfig.lib.json",
+            "project": "projects/file-upload-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/file-upload-angular/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/file-upload-angular/src/test.ts",
+            "tsConfig": "projects/file-upload-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/file-upload-angular/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/file-upload-angular/tsconfig.lib.json",
+              "projects/file-upload-angular/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ashish-gmap-library"
 }

@@ -23,6 +23,10 @@
       "google-maps-angular": [
         "dist/google-maps-angular/google-maps-angular",
         "dist/google-maps-angular"
+      ],
+      "file-upload-angular": [
+        "dist/file-upload-angular/file-upload-angular",
+        "dist/file-upload-angular"
       ]
     }
   },

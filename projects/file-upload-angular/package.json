@@ -1,0 +1,31 @@
+{
+  "name": "file-upload-angular",
+  "version": "1.0.0",
+  "private": false,
+  "peerDependencies": {
+    "@angular/common": "^9.1.13",
+    "@angular/core": "^9.1.13"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "keywords": [
+    "angular",
+    "angular 2",
+    "angular 4",
+    "angular 5",
+    "angular 6",
+    "angular 7",
+    "angular 8",
+    "angular 9",
+    "file upload",
+    "multiple file upload",
+    "angular multiple file upload",
+    "multiple file upload angular",
+    "angular multiple file upload",
+    "multiple file upload angular",
+    "angular file upload",
+    "file upload angular"
+  ],
+  "license": "MIT"
+}

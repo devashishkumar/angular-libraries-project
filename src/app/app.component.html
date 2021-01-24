@@ -1,4 +1,13 @@
 <!-- <div id="googlemapcontainer" class="negiMap"></div> -->
 
-<google-maps-angular (markerClicked)="markerClicked($event)" [markers]="markers"
-    [latLong]="latLong" [apiKey]="'AIzaSyBM-Pje26mgUYOfDwfVEAUCZNp-3W8GjwA'" [googleMapDefaultIcon]="googleMapDefaultIcon"></google-maps-angular>
+<!-- <google-maps-angular (markerClicked)="markerClicked($event)" [markers]="markers"
+    [latLong]="latLong" [apiKey]="'AIzaSyBM-Pje26mgUYOfDwfVEAUCZNp-3W8GjwA'" [googleMapDefaultIcon]="googleMapDefaultIcon"></google-maps-angular> -->
+
+
+    <file-upload-angular
+      #fileUploader
+      [multiple]="false"
+      [config]="config"
+      (fileUploadEmitter)="fileUploadHandler($event)"
+      (filesEmitter)="handleFiles($event)"
+    ></file-upload-angular>

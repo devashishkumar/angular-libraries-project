@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FileUploadAngularComponent } from 'projects/file-upload-angular/src/lib/file-upload-angular.component';
 
 @Component({
   selector: 'app-root',
@@ -76,6 +77,20 @@ export class AppComponent implements OnInit {
   ];
   nMap: any = {};
 
+  // file uploader 
+  files = [];
+  config = {
+    maxSize: 10,
+    uploadConfig: {
+      url: "test url",
+      method: "POST",
+      userRef: "test user",
+    },
+    formatsAllowed: ".jpg, .png, .mp4",
+    multipleUpload: true,
+  };
+  @ViewChild('fileUploader') fileUploaderObj: FileUploadAngularComponent;
+
   ngOnInit() {
   }
 
@@ -86,5 +101,16 @@ export class AppComponent implements OnInit {
   markerClicked(data) {
     console.log(data, '53');
     // alert('Please check browser console to get click marker information');
+  }
+
+  fileUploadHandler(data: any) {
+    console.log(data, "36");
+  }
+  handleFiles(data) {
+    console.log(data, "34");
+    this.files = data.validFiles;
+  }
+  fileUpload() {
+    // console.log(this.fileUploaderObj.fileUpload());
   }
 }

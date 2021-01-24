@@ -5,11 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {GoogleMapsAngularComponent} from './../../projects/google-maps-angular/src/lib/google-maps-angular.component';
 // import { GoogleMapsAngularModule } from 'google-maps-angular';
+import {FileUploadAngularComponent} from './../../projects/file-upload-angular/src/lib/file-upload-angular.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    GoogleMapsAngularComponent
+    GoogleMapsAngularComponent,
+    FileUploadAngularComponent
   ], exports: [
   ],
   imports: [
