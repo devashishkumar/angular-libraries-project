@@ -6,8 +6,9 @@
 
     <file-upload-angular
       #fileUploader
-      [multiple]="false"
+      [multiple]="true"
       [config]="config"
+      [buttonText]="'Select Files'"
       (fileUploadEmitter)="fileUploadHandler($event)"
       (filesEmitter)="handleFiles($event)"
     ></file-upload-angular>

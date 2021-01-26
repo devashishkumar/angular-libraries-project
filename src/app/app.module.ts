@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {GoogleMapsAngularComponent} from './../../projects/google-maps-angular/src/lib/google-maps-angular.component';
 // import { GoogleMapsAngularModule } from 'google-maps-angular';
 import {FileUploadAngularComponent} from './../../projects/file-upload-angular/src/lib/file-upload-angular.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {FileUploadAngularComponent} from './../../projects/file-upload-angular/s
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
     // GoogleMapsAngularModule
   ],
   providers: [],

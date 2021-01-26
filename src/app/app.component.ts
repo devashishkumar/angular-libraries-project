@@ -77,16 +77,17 @@ export class AppComponent implements OnInit {
   ];
   nMap: any = {};
 
-  // file uploader 
+  // file uploader
   files = [];
   config = {
-    maxSize: 10,
+    maxSize: 120,
     uploadConfig: {
       url: "test url",
       method: "POST",
       userRef: "test user",
     },
     formatsAllowed: ".jpg, .png, .mp4",
+    // formatsAllowed: "",
     multipleUpload: true,
   };
   @ViewChild('fileUploader') fileUploaderObj: FileUploadAngularComponent;

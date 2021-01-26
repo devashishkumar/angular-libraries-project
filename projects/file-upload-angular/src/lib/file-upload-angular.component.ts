@@ -10,10 +10,13 @@ export class FileUploadAngularComponent implements OnInit {
   divId = '';
   @Input() multiple: boolean = false;
   @Input() config: any = {};
+  @Input() buttonText: string = 'Select Files';
   @Output() fileUploadEmitter = new EventEmitter();
   @Output() filesEmitter = new EventEmitter();
   allowedFiles = [];
   notAllowedFiles = [];
+  filesDialog: boolean = false;
+  selectAll: boolean = true;
 
   constructor() { }
 
@@ -21,30 +24,80 @@ export class FileUploadAngularComponent implements OnInit {
     this.divId = this.generateDynamicString(8);
   }
 
+  /**
+   * open/close files selection dialog
+   * @param val boolean
+   */
+  openCloseFilesDialog(val: boolean) {
+    this.filesDialog = val;
+    if (!val) {
+      this.filesEmitter.emit({
+        validFiles: this.filterSelectedFiles(),
+        invalidFiles: this.notAllowedFiles,
+      });
+    }
+  }
+
+  /**
+   * return selected files list
+   */
+  filterSelectedFiles() {
+    return this.allowedFiles.filter(e => e.selected === true);
+  }
+
+  /**
+   * select/unselect all checkboxes
+   * @param data object
+   */
+  selectedAll(data) {
+    if (this.allowedFiles && this.allowedFiles.length > 0) {
+      this.allowedFiles.forEach(e => {
+        e.selected = data;
+      });
+    }
+  }
+
+  /**
+   * remove valid files
+   * @param index number
+   */
   removeValidFiles(index: any) {
     if (index > -1) {
       this.allowedFiles.splice(index, 1);
     }
     this.filesEmitter.emit({
-      validFiles: this.allowedFiles,
+      validFiles: this.filterSelectedFiles(),
       invalidFiles: this.notAllowedFiles,
     });
   }
+
+  /**
+   * remove file from invalid files
+   * @param index number
+   */
   removeInvalidFiles(index: any) {
     if (index > -1) {
       this.notAllowedFiles.splice(index, 1);
     }
     this.filesEmitter.emit({
-      validFiles: this.allowedFiles,
+      validFiles: this.filterSelectedFiles(),
       invalidFiles: this.notAllowedFiles,
     });
   }
+  /**
+   * trigger input type file control on button click
+   */
   triggerFilesControl() {
     const element = document.getElementById(this.divId);
     if (element) {
       element.click();
     }
   }
+
+  /**
+   * generate random string as per passed number length
+   * @param length number
+   */
   generateDynamicString(length) {
     let result = "";
     const characters =
@@ -57,6 +110,10 @@ export class FileUploadAngularComponent implements OnInit {
     }
     return result;
   }
+
+  /**
+   * reset valid/invalid files property
+   */
   resetFiles() {
     this.allowedFiles = [];
     this.notAllowedFiles = [];
@@ -73,7 +130,10 @@ export class FileUploadAngularComponent implements OnInit {
     return (fileSize / 1024000).toFixed(2);
   }
 
-  // When user selects files.
+  /**
+   * trigger when user select files using file control
+   * @param event object
+   */
   onChange(event: any) {
     this.notAllowedFiles = [];
     let fileList: FileList;
@@ -92,14 +152,17 @@ export class FileUploadAngularComponent implements OnInit {
       if (currentFileName && currentFileName.length > 0) {
         currentFileExt = currentFileName[currentFileName.length - 1];
       }
-      const isFormatValid = this.config.formatsAllowed.includes(
+      const isFormatValid = this.config.formatsAllowed ? this.config.formatsAllowed.includes(
         currentFileExt
-      );
+      ) : true;
       const fSize = this.convertSize(fileList[i].size);
       const isSizeValid = fSize <= this.config.maxSize;
 
       // Check whether current file format and size is correct as specified in the configurations.
       if (isFormatValid && isSizeValid) {
+        const currentFile = fileList[i];
+        currentFile['fileSize'] = this.convertSize(fileList[i].size);
+        currentFile['selected'] = true;
         this.allowedFiles.push(fileList[i]);
       } else {
         this.notAllowedFiles.push({
@@ -115,13 +178,22 @@ export class FileUploadAngularComponent implements OnInit {
       invalidFiles: this.notAllowedFiles,
     });
   }
+
+  /**
+   * create files data to upload to API
+   */
   createFormData() {
     const formData = new FormData();
-    for (let i = 0; i < this.allowedFiles.length; i++) {
-      formData.append("files", this.allowedFiles[i]);
+    const validFiles = this.filterSelectedFiles()
+    for (let i = 0; i < validFiles.length; i++) {
+      formData.append("files", validFiles[i]);
     }
     return formData;
   }
+
+  /**
+   * service call
+   */
   fileUpload() {
     const formData = this.createFormData();
     fetch(this.config.uploadConfig.url, {
@@ -134,11 +206,11 @@ export class FileUploadAngularComponent implements OnInit {
     })
       .then((response) => response.json())
       .then((result) => {
-        this.fileUploadEmitter.emit({success: true, response: result});
+        this.fileUploadEmitter.emit({ success: true, response: result });
       })
       .catch((error) => {
         // this.$emit("fileUploadEmitter", { success: false, response: error });
-        this.fileUploadEmitter.emit({success: false, response: error});
+        this.fileUploadEmitter.emit({ success: false, response: error });
       });
   }
 

@@ -1,3 +1,7 @@
+### What's new in version 1.1.0
+
+We can pass custom text in files upload button, we can check valid/invalid files list in dialog and select which files we want to upload from the selected files list using files uploader
+
 # Angular single/multipe file uploader
 
 Angular single/multiple file uploader. We Just need to pass configuration as an input all the work handle by uploader component based on passed configuration
@@ -21,6 +25,7 @@ Angular single/multiple file uploader. We Just need to pass configuration as an 
       #fileUploader
       [multiple]="false"
       [config]="config"
+      [buttonText]="'Select Files'"
       (fileUploadEmitter)="fileUploadHandler($event)"
       (filesEmitter)="handleFiles($event)"
     ></file-upload-angular>
@@ -42,6 +47,7 @@ we can pass uploadConfig in case we want to upload files from uploader. fileUplo
 
 | Input | Type | Purpose |
 | ------ | ------ | ------ |
+| buttonText: required |string | upload button name you want to display in browser, like 'Select Files' |
 | multiple:required | boolean | true in case we want to upload multiple files otherwise false |
 | config: required |object | File Configurations |
 
