@@ -1,6 +1,6 @@
-### What's new in version 1.1.0
+### What's new in version 1.2.0
 
-We can pass custom text in files upload button, we can check valid/invalid files list in dialog and select which files we want to upload from the selected files list using files uploader
+We can pass custom text in files upload button, we can check valid/invalid files list in dialog and select which files we want to upload from the selected files list using files uploader. Demo URL attached with this version
 
 # Angular single/multipe file uploader
 
@@ -72,20 +72,6 @@ this.filesEmitter.emit({
       invalidFiles: invalidFilesList (in case max size exceed or invalid format),
     });
 ```
-### config should be in below format
-```html
-<script>
-    config: {
-    maxSize: 10,
-    uploadConfig: {
-        url: "API url",
-        method: "POST",
-        userRef: "test user, this is user token we will use as a bearer",
-    },
-    formatsAllowed: ".jpg, .png, .mp4",
-    }
-</script>
-```
 
 ## Installation
 
@@ -126,6 +112,8 @@ to execute this method properly we need to pass apiUrl, method and logged in use
 
 ```
 
-## License
+### [Demo](https://angularfileupload.herokuapp.com/)
+
+### License
 
 The MIT License
