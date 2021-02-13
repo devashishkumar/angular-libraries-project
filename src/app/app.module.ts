@@ -6,14 +6,19 @@ import { AppComponent } from './app.component';
 import {GoogleMapsAngularComponent} from './../../projects/google-maps-angular/src/lib/google-maps-angular.component';
 // import { GoogleMapsAngularModule } from 'google-maps-angular';
 import {FileUploadAngularComponent} from './../../projects/file-upload-angular/src/lib/file-upload-angular.component';
+import {ChartAngularComponent} from './../../projects/chart-angular/src/lib/chart-angular.component';
+
 import { FormsModule } from '@angular/forms';
+import { ChartLibTestingComponent } from './chart-lib-testing/chart-lib-testing.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GoogleMapsAngularComponent,
-    FileUploadAngularComponent
+    FileUploadAngularComponent,
+    ChartLibTestingComponent,
+    ChartAngularComponent
   ], exports: [
   ],
   imports: [

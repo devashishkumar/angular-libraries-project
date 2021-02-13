@@ -27,6 +27,10 @@
       "file-upload-angular": [
         "dist/file-upload-angular/file-upload-angular",
         "dist/file-upload-angular"
+      ],
+      "chart-angular": [
+        "dist/chart-angular/chart-angular",
+        "dist/chart-angular"
       ]
     }
   },

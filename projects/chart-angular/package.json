@@ -1,0 +1,27 @@
+{
+  "name": "chart-angular",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^9.1.13",
+    "@angular/core": "^9.1.13"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "keywords": [
+    "angular",
+    "angular 2",
+    "angular 4",
+    "angular 5",
+    "angular 6",
+    "angular 7",
+    "angular 8",
+    "angular 9",
+    "chart",
+    "angular chart",
+    "angular charts",
+    "chart angular",
+    "charts angular"
+  ],
+  "license": "MIT"
+}
