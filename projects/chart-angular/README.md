@@ -18,7 +18,7 @@ import library and use ChartAngularModule in imports array
 ### How we use chart library in our application
 
 <chart-angular [chartConfig]="chartConfig" [chartType]="'line'" (labelClicked)="ourMethod($event)"
-    [isLabelShow]="true"></chart-angular>
+    [isLabelShow]="true" (chartClicked)="chartClickedEvent($event)"></chart-angular>
 
 ### chartConfig will be input in the following format
 
