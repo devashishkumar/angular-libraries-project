@@ -4,6 +4,8 @@ This library is used to generate charts in your angular application in an easies
 
 ### Installation
 
+First we need to add chart.js file in application index.html file
+
 ```sh
 npm install chart-angular
 ```
@@ -31,7 +33,29 @@ chartConfig = {
     }]
   };
 
-### chartType will be input used to display type of chart like line, pie and so on
+## Note: above config format should be use for Line and Bar Chart. For Pie Chart config should be in below format
+
+chartConfig = {
+    labels: ['Jan','Feb','Mar', 'Apr'],
+    datasets: [
+        {
+            data: [300, 50, 100, 80],
+            backgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56",
+                "#EF09OM"
+            ],
+            hoverBackgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56",
+                "#EF09OM"
+            ]
+        }]    
+    };
+
+### chartType will be input used to display type of chart like pie/bar/line
 
 ### isLabelShow will be true/false, by default it's true in case we want to display labels othewise false
 
@@ -48,4 +72,5 @@ chartConfig = {
 | Output | Purpose |
 | ------ | ------ |
 | labelClicked | This emitter will trigger when user click on any particular chart label and return that particular label information|
+| chartClicked | This emitter will trigger when user click on any specific chart section and return that particular section information|
 

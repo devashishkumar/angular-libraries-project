@@ -1,2 +1,2 @@
-<chart-angular [chartConfig]="lineChartConfig" [chartType]="'line'" (labelClicked)="ourMethod($event)"
-    [isLabelShow]="true"></chart-angular>
+<chart-angular [chartConfig]="pieChartConfig" [chartType]="'pie'" (labelClicked)="ourMethod($event)"
+    [isLabelShow]="true" (chartClicked)="chartClicked($event)"></chart-angular>

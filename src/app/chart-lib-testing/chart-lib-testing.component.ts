@@ -7,21 +7,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChartLibTestingComponent implements OnInit {
 
-  lineChartConfig: any = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  chartConfig: any = {
+    labels: ['January', 'February', 'March'],
     datasets: [{
       label: 'January',
       backgroundColor: 'yellow',
       borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45]
+      data: [5, 10, 15]
     },
     {
       label: 'Febrauary',
       backgroundColor: 'brown',
       borderColor: 'rgb(255, 99, 132)',
-      data: [0, 20, 5, 2, 20, 30, 45]
+      data: [20, 25, 30]
+    },{
+      label: 'March',
+      backgroundColor: 'purple',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [35, 43, 45]
     }]
   };
+
+  pieChartConfig = {
+    labels: ['Jan','Feb','Mar', 'Apr'],
+    datasets: [
+        {
+            data: [300, 50, 100, 80],
+            backgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56",
+                "#EF09OM"
+            ],
+            hoverBackgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56",
+                "#EF09OM"
+            ]
+        }]    
+    };
 
   constructor() { }
 
@@ -29,6 +54,10 @@ export class ChartLibTestingComponent implements OnInit {
   }
 
   ourMethod(data) {
+    window.console.log(data, '32');
+  }
+
+  chartClicked(data) {
     window.console.log(data, '32');
   }
 
