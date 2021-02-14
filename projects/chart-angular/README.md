@@ -2,7 +2,7 @@
 
 This library is used to generate charts in your angular application in an easiest way
 
-## Installation
+### Installation
 
 First we need to add chart.js file in application index.html file
 
@@ -10,33 +10,55 @@ First we need to add chart.js file in application index.html file
 npm install chart-angular
 ```
 
-## in app.module following changes required
+### in app.module following changes required
 
 import { ChartAngularModule } from 'chart-angular';
 import library and use ChartAngularModule in imports array
 
-## How we use chart library in our application
+### How we use chart library in our application
 
 <chart-angular [chartConfig]="chartConfig" [chartType]="'line'" (labelClicked)="ourMethod($event)"
     [isLabelShow]="true" (chartClicked)="chartClickedEvent($event)"></chart-angular>
 
-## chartConfig will be input in the following format
+### line/bar will be input in the following format
 
 ```sh
 chartConfig = {
-    {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ["Tokyo", "Mumbai", "Mexico City", "Shanghai", "Sao Paulo"],
     datasets: [{
-      label: 'January',
-      backgroundColor: 'yellow',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 15, 20, 25, 30, 35]
+      label: 'Population', // Name the series
+      data: [22006299, 15834918, 14919501, 14797756, 14433147],
+      backgroundColor: [ // Specify custom colors
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)'
+      ],
+      borderWidth: 1 // Specify bar border width
+    },
+    {
+      label: 'Second Label', 
+      data: [120000, 15000000, 1454210, 240124, 3358452],
+      backgroundColor: '#f443368c',
+      borderColor: '#f443368c',
+      borderWidth: 1,
+      type: 'line',
+      fill: false
+    },
+    {
+      label: 'Third Label',
+      data: [5024554, 2001424, 4454201, 4565420, 5659888],
+      backgroundColor: '#2196f38c',
+      borderColor: '#2196f38c',
+      borderWidth: 1,
+      type: 'line',
+      fill: false
     }]
   };
 ```
-## Note: above config format should be use for Line and Bar Chart.
 
-## For Pie/doughnut Chart config should be in below format
+### For Pie/doughnut Chart config should be in below format
 ```sh
 chartConfig = {
     labels: ['Jan','Feb','Mar', 'Apr'],
@@ -59,7 +81,7 @@ chartConfig = {
     };
 ```
 
-## polarArea chart config
+### polarArea chart config
 ```sh
 chartConfig = {
     datasets: [{
@@ -89,7 +111,7 @@ chartConfig = {
   };
 ```
 
-## radar chart config
+### radar chart config
 ```sh
 chartConfig = {
     labels: ['Label1', 'Label2', 'Label3', 'Label4'],
@@ -128,11 +150,11 @@ chartConfig = {
 };
 ```
 
-## chartType will be input used to display type of chart like pie/bar/line
+### chartType will be input used to display type of chart like pie/bar/line
 
-## isLabelShow will be true/false, by default it's true in case we want to display labels othewise false
+### isLabelShow will be true/false, by default it's true in case we want to display labels othewise false
 
-## Inputs
+### Inputs
 
 | Input | Purpose |
 | ------ | ------ |
@@ -140,7 +162,7 @@ chartConfig = {
 | chartType:required | Type of chart like line|pie|bar|doughnut|polarArea|radar |
 | isLabelShow:optional | boolean, it's true in case we want to display labels othewise false |
 
-## Events
+### Events
 
 | Output | Purpose |
 | ------ | ------ |
