@@ -159,7 +159,7 @@ chartConfig = {
 | Input | Purpose |
 | ------ | ------ |
 | chartConfig:required | chart config including data, styles, labels |
-| chartType:required | Type of chart like line|pie|bar|doughnut|polarArea|radar |
+| chartType:required | Type of chart like line, pie, bar, doughnut, polarArea, radar |
 | isLabelShow:optional | boolean, it's true in case we want to display labels othewise false |
 
 ### Events
