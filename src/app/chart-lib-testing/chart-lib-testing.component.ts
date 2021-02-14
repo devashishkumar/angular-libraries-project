@@ -20,7 +20,7 @@ export class ChartLibTestingComponent implements OnInit {
       backgroundColor: 'brown',
       borderColor: 'rgb(255, 99, 132)',
       data: [20, 25, 30]
-    },{
+    }, {
       label: 'March',
       backgroundColor: 'purple',
       borderColor: 'rgb(255, 99, 132)',
@@ -29,24 +29,105 @@ export class ChartLibTestingComponent implements OnInit {
   };
 
   pieChartConfig = {
-    labels: ['Jan','Feb','Mar', 'Apr'],
+    labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+    datasets: [
+      {
+        data: [300, 50, 100, 80],
+        backgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56",
+          "#EF09OM"
+        ],
+        hoverBackgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56",
+          "#EF09OM"
+        ]
+      }]
+  };
+
+  doughnutChartConfig = {
+    labels: ['Jan', 'Feb', 'Mar'],
+    datasets: [
+      {
+        data: [300, 50, 100],
+        backgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56"
+        ],
+        hoverBackgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56"
+        ]
+      }]
+  };
+
+  polarChartConfig = {
+    datasets: [{
+      data: [
+        11,
+        16,
+        7,
+        3,
+        14
+      ],
+      backgroundColor: [
+        "#FF6384",
+        "#4BC0C0",
+        "#FFCE56",
+        "#E7E9ED",
+        "#36A2EB"
+      ],
+      label: 'My dataset'
+    }],
+    labels: [
+      "Jan",
+      "Feb",
+      "March",
+      "April",
+      "May"
+    ]
+  };
+
+  radarChartConfig = {
+    labels: ['Label1', 'Label2', 'Label3', 'Label4'],
     datasets: [
         {
-            data: [300, 50, 100, 80],
-            backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56",
-                "#EF09OM"
-            ],
-            hoverBackgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56",
-                "#EF09OM"
-            ]
-        }]    
-    };
+            label: 'First Label Dataset',
+            backgroundColor: 'yellow',
+            borderColor: 'yellow',
+            pointBackgroundColor: 'rgba(179,181,198,1)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(179,181,198,1)',
+            data: [10, 20, 30, 40]
+        },
+        {
+            label: 'Second Label Dataset',
+            backgroundColor: 'purple',
+            borderColor: 'brown',
+            pointBackgroundColor: 'rgba(255,99,132,1)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(255,99,132,1)',
+            data: [28, 48, 40, 19]
+        },
+        {
+            label: 'Third Label Dataset',
+            backgroundColor: 'blue',
+            borderColor: 'blue',
+            pointBackgroundColor: 'rgba(255,99,132,1)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgba(255,99,132,1)',
+            data: [30, 40, 50, 60]
+        }
+    ]
+};
 
   constructor() { }
 
