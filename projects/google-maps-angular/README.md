@@ -19,8 +19,8 @@ import library and use GoogleMapsAngularModule in imports array
 
 ### How we use google-maps-angular library in our applications
 
-<google-maps-angular (markerClicked)="yourComponentMethod($event)" [markers]="markers"
-    [latLong]="latLong" [apiKey]="'your google api key'" [googleMapDefaultIcon]="googleMapDefaultIcon"></google-maps-angular>
+<lib-google-maps-angular (markerClicked)="yourComponentMethod($event)" [markers]="markers"
+    [latLong]="latLong" [apiKey]="'your google api key'" [googleMapDefaultIcon]="googleMapDefaultIcon"></lib-google-maps-angular>
 
 ### latLong will be input in the following format
 

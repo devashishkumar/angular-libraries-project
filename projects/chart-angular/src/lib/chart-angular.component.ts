@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 declare var Chart: any;
 
 @Component({
-  selector: 'chart-angular',
+  selector: 'lib-chart-angular',
   templateUrl: './chart-angular.component.html',
   styleUrls: ['./chart-angular.component.css']
 })
@@ -10,8 +10,8 @@ export class ChartAngularComponent implements OnInit {
 
   divId = '';
   @Input() chartConfig: any = {};
-  @Input() chartType: string = '';
-  @Input() isLabelShow: boolean = true;
+  @Input() chartType = '';
+  @Input() isLabelShow = true;
   @Output() labelClicked = new EventEmitter();
   @Output() chartClicked = new EventEmitter();
 
@@ -29,8 +29,8 @@ export class ChartAngularComponent implements OnInit {
    * @param length number
    */
   generateDynamicString(length) {
-    let result = "";
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
     for (let i = 0; i < length; i++) {
       result += characters.charAt(
@@ -67,13 +67,11 @@ export class ChartAngularComponent implements OnInit {
             this.labelClicked.emit({ rowClicked: legendItem });
           }
         },
-        onClick: function (e) {
-          var element = this.getElementAtEvent(e);
-
-          // If you click on at least 1 element ...
+        onClick(e) {
+          const element = this.getElementAtEvent(e);
           if (element.length > 0) {
-            var datasetLabel = this.config.data.datasets[element[0]._datasetIndex].label;
-            var data = this.config.data.datasets[element[0]._datasetIndex].data[element[0]._index];
+            const datasetLabel = this.config.data.datasets[element[0]._datasetIndex].label;
+            const data = this.config.data.datasets[element[0]._datasetIndex].data[element[0]._index];
             self.chartClicked.emit({ label: datasetLabel, index: element[0]._datasetIndex });
           }
         }
@@ -91,24 +89,13 @@ export class ChartAngularComponent implements OnInit {
       return;
     }
     document.getElementById(this.divId).onclick = (evt) => {
-      var activePoints = chart.getElementsAtEvent(evt);
+      const activePoints = chart.getElementsAtEvent(evt);
 
       if (activePoints.length > 0) {
-        //get the internal index of slice in pie chart
-        const clickedElementindex = activePoints[0]["_index"];
-
-        //get specific label by index 
-        const label = chart.data.labels[clickedElementindex];
-
-        window.console.log(activePoints, clickedElementindex, label, '92');
-
-        //get value by index      
-        // const value = chart.data.datasets[0].data[clickedElementindex];
-        this.chartClicked.emit({ label: label, index: clickedElementindex });
-
-        /* other stuff that requires slice's label and value */
+        const clickedElementindex = activePoints[0]._index;
+        const chartLabel = chart.data.labels[clickedElementindex];
+        this.chartClicked.emit({ label: chartLabel, index: clickedElementindex });
       }
-    }
+    };
   }
-
 }

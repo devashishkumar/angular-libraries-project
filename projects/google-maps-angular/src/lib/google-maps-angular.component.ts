@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 declare var google: any;
 
 @Component({
-  selector: 'google-maps-angular',
+  selector: 'lib-google-maps-angular',
   templateUrl: './google-maps-angular.component.html',
   styleUrls: ['./google-maps-angular.component.css']
 })
@@ -12,7 +12,7 @@ export class GoogleMapsAngularComponent implements OnInit {
   @Input() markers = [];
   radius: any = 2;
   nMap: any = {};
-  divId: string = '';
+  divId = '';
   customMarkers = [];
   @Input() googleMapDefaultIcon = '';
   @Input() googleMapActiveIcon = '';
@@ -21,13 +21,13 @@ export class GoogleMapsAngularComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const googleMapScript = document.createElement("SCRIPT");
+    const googleMapScript = document.createElement('SCRIPT');
     googleMapScript.setAttribute(
-      "src",
+      'src',
       `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&**callback=initMap`
     );
-    googleMapScript.setAttribute("defer", "");
-    googleMapScript.setAttribute("async", "");
+    googleMapScript.setAttribute('defer', '');
+    googleMapScript.setAttribute('async', '');
     document.head.appendChild(googleMapScript);
     this.divId = this.generateDynamicString(10);
     setTimeout(() => {
@@ -39,7 +39,7 @@ export class GoogleMapsAngularComponent implements OnInit {
    * load google maps
    */
   loadMap() {
-    let googleInit = this.getGoogleInitData(this.latLong.lat, this.latLong.long);
+    const googleInit = this.getGoogleInitData(this.latLong.lat, this.latLong.long);
     this.nMap = new google.maps.Map(document.getElementById(this.divId), googleInit);
     this.renderMarkers(this.latLong);
   }
@@ -53,7 +53,9 @@ export class GoogleMapsAngularComponent implements OnInit {
     return {
       zoom: 16,
       center: new google.maps.LatLng(lattitude, longtitude),
-      styles: [{ "featureType": "administrative.country", "elementType": "geometry", "stylers": [{ "visibility": "simplified" }, { "hue": "#ff0000" }] }]
+      styles: [{ featureType: 'administrative.country',
+      elementType: 'geometry',
+      stylers: [{ visibility: 'simplified' }, { hue: '#ff0000' }] }]
     };
   }
 
@@ -62,10 +64,10 @@ export class GoogleMapsAngularComponent implements OnInit {
    * @param length number
    */
   generateDynamicString(length) {
-    var result = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
@@ -79,7 +81,7 @@ export class GoogleMapsAngularComponent implements OnInit {
       anchor: new google.maps.Point(0, 20),
       // scaledSize: new google.maps.Size(defaultSize, defaultSize),
       labelOrigin: new google.maps.Point(labelX, 15.5),
-    }
+    };
   }
 
   /**
@@ -107,8 +109,8 @@ export class GoogleMapsAngularComponent implements OnInit {
       });
 
       marker.setValues({ id: i, type: currentType });
-      ((marker, l) => {
-        google.maps.event.addListener(marker, 'click', () => {
+      ((markerObj, l) => {
+        google.maps.event.addListener(markerObj, 'click', () => {
           // marker.setIcon(this.googleMapActiveIcon, 48, 22);
           this.markerClicked.emit({ rowClicked: l });
         });

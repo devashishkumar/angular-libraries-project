@@ -8,15 +8,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class FileUploadAngularComponent implements OnInit {
 
   divId = '';
-  @Input() multiple: boolean = false;
+  @Input() multiple = false;
   @Input() config: any = {};
-  @Input() buttonText: string = 'Select Files';
+  @Input() buttonText = 'Select Files';
   @Output() fileUploadEmitter = new EventEmitter();
   @Output() filesEmitter = new EventEmitter();
   allowedFiles = [];
   notAllowedFiles = [];
-  filesDialog: boolean = false;
-  selectAll: boolean = true;
+  filesDialog = false;
+  selectAll = true;
 
   constructor() { }
 
@@ -99,9 +99,9 @@ export class FileUploadAngularComponent implements OnInit {
    * @param length number
    */
   generateDynamicString(length) {
-    let result = "";
+    let result = '';
     const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
     for (let i = 0; i < length; i++) {
       result += characters.charAt(
@@ -139,7 +139,7 @@ export class FileUploadAngularComponent implements OnInit {
     let fileList: FileList;
     this.allowedFiles = [];
 
-    if (event.type === "drop") {
+    if (event.type === 'drop') {
       fileList = event.dataTransfer.files;
     } else {
       fileList = event.target.files || event.srcElement.files;
@@ -147,8 +147,8 @@ export class FileUploadAngularComponent implements OnInit {
 
     for (let i = 0; i < fileList.length; i++) {
       // const currentFileExt = fileExtRegExp.exec(fileList[i].name)[1].toLowerCase(); // Get file extension.
-      const currentFileName = fileList[i].name.split(".");
-      let currentFileExt = "";
+      const currentFileName = fileList[i].name.split('.');
+      let currentFileExt = '';
       if (currentFileName && currentFileName.length > 0) {
         currentFileExt = currentFileName[currentFileName.length - 1];
       }
@@ -168,7 +168,7 @@ export class FileUploadAngularComponent implements OnInit {
         this.notAllowedFiles.push({
           fileName: fileList[i].name,
           fileSize: this.convertSize(fileList[i].size),
-          errorMsg: !isFormatValid ? "Invalid format" : "Invalid size",
+          errorMsg: !isFormatValid ? 'Invalid format' : 'Invalid size',
         });
       }
     }
@@ -184,9 +184,9 @@ export class FileUploadAngularComponent implements OnInit {
    */
   createFormData() {
     const formData = new FormData();
-    const validFiles = this.filterSelectedFiles()
+    const validFiles = this.filterSelectedFiles();
     for (let i = 0; i < validFiles.length; i++) {
-      formData.append("files", validFiles[i]);
+      formData.append('files', validFiles[i]);
     }
     return formData;
   }
@@ -200,7 +200,7 @@ export class FileUploadAngularComponent implements OnInit {
       method: this.config.uploadConfig.method,
       body: formData,
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Bearer: this.config.uploadConfig.userRef,
       },
     })
