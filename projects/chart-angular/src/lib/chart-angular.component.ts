@@ -44,6 +44,7 @@ export class ChartAngularComponent implements OnInit {
    * create chart
    */
   createChart() {
+    const self = this;
     if (!document.getElementById(this.divId)) {
       return;
     }
@@ -65,10 +66,20 @@ export class ChartAngularComponent implements OnInit {
             const labelIndex = legendItem.datasetIndex;
             this.labelClicked.emit({ rowClicked: legendItem });
           }
+        },
+        onClick: function (e) {
+          var element = this.getElementAtEvent(e);
+
+          // If you click on at least 1 element ...
+          if (element.length > 0) {
+            var datasetLabel = this.config.data.datasets[element[0]._datasetIndex].label;
+            var data = this.config.data.datasets[element[0]._datasetIndex].data[element[0]._index];
+            self.chartClicked.emit({ label: datasetLabel, index: element[0]._datasetIndex });
+          }
         }
       }
     });
-    this.bindChartClickEvent(chart);
+    // this.bindChartClickEvent(chart);
   }
 
   /**
@@ -89,9 +100,11 @@ export class ChartAngularComponent implements OnInit {
         //get specific label by index 
         const label = chart.data.labels[clickedElementindex];
 
+        window.console.log(activePoints, clickedElementindex, label, '92');
+
         //get value by index      
         // const value = chart.data.datasets[0].data[clickedElementindex];
-        this.chartClicked.emit({ label: label, index:clickedElementindex });
+        this.chartClicked.emit({ label: label, index: clickedElementindex });
 
         /* other stuff that requires slice's label and value */
       }

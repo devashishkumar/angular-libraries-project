@@ -150,16 +150,32 @@ chartConfig = {
 };
 ```
 
-### chartType will be input used to display type of chart like pie/bar/line
+### bubble chart config
 
-### isLabelShow will be true/false, by default it's true in case we want to display labels othewise false
+```sh
+bubbleChartConfig = {
+    datasets: [
+      {
+        label: 'Label1',
+        data: [
+          {
+            x: 3,
+            y: 7,
+            r: 10
+          }
+        ],
+        backgroundColor: "#ff6384",
+        hoverBackgroundColor: "#ff6384"
+      }
+    ]}
+```
 
 ### Inputs
 
 | Input | Purpose |
 | ------ | ------ |
 | chartConfig:required | chart config including data, styles, labels |
-| chartType:required | Type of chart like line, pie, bar, doughnut, polarArea, radar |
+| chartType:required | Type of chart like line, pie, bar, doughnut, polarArea, radar, bubble |
 | isLabelShow:optional | boolean, it's true in case we want to display labels othewise false |
 
 ### Events

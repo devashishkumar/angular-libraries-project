@@ -132,7 +132,7 @@ export class ChartLibTestingComponent implements OnInit {
   barChartConfig = {
     labels: ["Tokyo", "Mumbai", "Mexico City", "Shanghai", "Sao Paulo"],
     datasets: [{
-      label: 'Population', // Name the series
+      label: 'Tokyo', // Name the series
       data: [22006299, 15834918, 14919501, 14797756, 14433147], // Specify the data values array
       backgroundColor: [ // Specify custom colors
         'rgba(255, 99, 132, 0.2)',
@@ -144,7 +144,7 @@ export class ChartLibTestingComponent implements OnInit {
       borderWidth: 1 // Specify bar border width
     },
     {
-      label: 'ExampleLine1', // Name the series
+      label: 'Mumbai', // Name the series
       data: [120000, 15000000, 1454210, 240124, 3358452], // Specify the data values array
       backgroundColor: '#f443368c',
       borderColor: '#f443368c',
@@ -153,7 +153,7 @@ export class ChartLibTestingComponent implements OnInit {
       fill: false
     },
     {
-      label: 'ExampleLine2', // Name the series
+      label: 'Mexico City', // Name the series
       data: [5024554, 2001424, 4454201, 4565420, 5659888], // Specify the data values array
       backgroundColor: '#2196f38c',
       borderColor: '#2196f38c',
@@ -162,6 +162,107 @@ export class ChartLibTestingComponent implements OnInit {
       fill: false
     }]
   }
+
+  bubbleChartConfig = {
+    datasets: [
+      {
+        label: 'Label1',
+        data: [
+          {
+            x: 3,
+            y: 7,
+            r: 10
+          }
+        ],
+        backgroundColor: "#ff6384",
+        hoverBackgroundColor: "#ff6384"
+      },
+      {
+        label: 'Label2',
+        data: [
+          {
+            x: 6,
+            y: 2,
+            r: 10
+          }
+        ],
+        backgroundColor: "#ff6384",
+        hoverBackgroundColor: "#ff6384"
+      },
+      {
+        label: 'Label3',
+        data: [
+          {
+            x: 2,
+            y: 6,
+            r: 10
+          }
+        ],
+        backgroundColor: "#ff6384",
+        hoverBackgroundColor: "#ff6384"
+      },
+      {
+        label: 'Label4',
+        data: [
+          {
+            x: 5,
+            y: 3,
+            r: 10
+          }
+        ],
+        backgroundColor: "#ff6384",
+        hoverBackgroundColor: "#ff6384"
+      },
+      {
+        label: 'Label5',
+        data: [
+          {
+            x: 2,
+            y: 1,
+            r: 10
+          }
+        ],
+        backgroundColor: "#ff6384",
+        hoverBackgroundColor: "#ff6384"
+      },
+      {
+        label: 'Label6',
+        data: [
+          {
+            x: 1,
+            y: 3,
+            r: 10
+          }
+        ],
+        backgroundColor: "#ff6384",
+        hoverBackgroundColor: "#ff6384"
+      },
+      {
+        label: 'Label7',
+        data: [
+          {
+            x: 1,
+            y: 1,
+            r: 10
+          }
+        ],
+        backgroundColor: "#ff6384",
+        hoverBackgroundColor: "#ff6384"
+      },
+      {
+        label: 'Label8',
+        data: [
+          {
+            x: 1,
+            y: 2,
+            r: 10
+          }
+        ],
+        backgroundColor: "#ff6384",
+        hoverBackgroundColor: "#ff6384"
+      }
+    ]
+  };
 
   constructor() { }
 
