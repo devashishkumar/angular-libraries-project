@@ -21,14 +21,14 @@ import library and use GoogleMapsAngularModule in imports array
 ```
 
 ### latLong config format
-
+```sh
 latLong = {
     lat: your latitide,
     long: your longitude
   };
-
+```
 ### markers config format
-
+```sh
 markers = [
     {
       lat: your marker latitude,
@@ -41,7 +41,7 @@ markers = [
       }
     }
   ];
-
+```
 ### Inputs
 
 | Input | Purpose |
