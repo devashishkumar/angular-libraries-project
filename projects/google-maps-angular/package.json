@@ -1,6 +1,6 @@
 {
   "name": "google-maps-angular",
-  "version": "1.11.0",
+  "version": "2.0.0",
   "peerDependencies": {
     "@angular/common": "^9.1.13",
     "@angular/core": "^9.1.13"
@@ -10,9 +10,18 @@
   },
   "keywords": [
     "angular",
+    "angular 2",
+    "angular 4",
+    "angular 5",
+    "angular 6",
+    "angular 7",
+    "angular 8",
+    "angular 9",
     "google maps",
     "angular google maps",
     "google maps angular",
+    "angular google map",
+    "google map angular",
     "angular google maps markers",
     "google maps markers angular"
   ],

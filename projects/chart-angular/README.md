@@ -10,10 +10,14 @@ First we need to add chart.js file in application index.html file
 npm install chart-angular
 ```
 
-### in app.module following changes required
+### import ChartAngularModule in app.module
 
+```sh
 import { ChartAngularModule } from 'chart-angular';
-import library and use ChartAngularModule in imports array
+imports: [
+    ChartAngularModule
+  ]
+```
 
 ### How we use chart library in our application
 

@@ -8,10 +8,14 @@ This library is use to render google maps in your application. you will have to 
 npm install google-maps-angular
 ```
 
-### in app.module following changes required
+### import GoogleMapsAngularModule in app.module
 
+```sh
 import { GoogleMapsAngularModule } from 'google-maps-angular';
-import library and use GoogleMapsAngularModule in imports array
+imports: [
+    GoogleMapsAngularModule
+  ]
+```
 
 ### How we use google-maps-angular library in our applications
 
