@@ -1,7 +1,3 @@
-### What's new in version 1.7.0
-
-we can pass custom markers icons and add font color/weight as per our requirements. The most important thing we don't need to add google map script in our html file with api key. we just need to pass that particular key in our component as an input. Here are updated document
-
 ### Documentation
 
 This library is use to render google maps in your application. you will have to pass 'latLong' as a input to display google maps in your application. in case you want to add markers of your map neary by locations you will have to pass markers data as per the below defined format. when user click on any particular marker an event will execute and user will notify on which marker user has been clicked
@@ -19,17 +15,19 @@ import library and use GoogleMapsAngularModule in imports array
 
 ### How we use google-maps-angular library in our applications
 
+```sh
 <lib-google-maps-angular (markerClicked)="yourComponentMethod($event)" [markers]="markers"
     [latLong]="latLong" [apiKey]="'your google api key'" [googleMapDefaultIcon]="googleMapDefaultIcon"></lib-google-maps-angular>
+```
 
-### latLong will be input in the following format
+### latLong config format
 
 latLong = {
     lat: your latitide,
     long: your longitude
   };
 
-### markers will be input and data format will be as per below format
+### markers config format
 
 markers = [
     {

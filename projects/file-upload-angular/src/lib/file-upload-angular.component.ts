@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'file-upload-angular',
+  selector: 'lib-file-upload',
   templateUrl: './file-upload-angular.component.html',
   styleUrls: ['./file-upload-angular.component.css']
 })

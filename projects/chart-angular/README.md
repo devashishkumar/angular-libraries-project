@@ -17,10 +17,12 @@ import library and use ChartAngularModule in imports array
 
 ### How we use chart library in our application
 
+```sh
 <lib-chart-angular [chartConfig]="chartConfig" [chartType]="'line'" (labelClicked)="ourMethod($event)"
     [isLabelShow]="true" (chartClicked)="chartClickedEvent($event)"></lib-chart-angular>
+```
 
-### line/bar will be input in the following format
+### line/bar chart config
 
 ```sh
 chartConfig = {
@@ -58,7 +60,7 @@ chartConfig = {
   };
 ```
 
-### For Pie/doughnut Chart config should be in below format
+### pie/doughnut chart config
 ```sh
 chartConfig = {
     labels: ['Jan','Feb','Mar', 'Apr'],
@@ -170,12 +172,33 @@ bubbleChartConfig = {
     ]}
 ```
 
+### scatter chart config
+
+```sh
+scatterChartConfig = {
+    datasets: [{
+      label: 'Label1',
+      backgroundColor: "#ff6384",
+      data: [{
+        x: -10,
+        y: 0
+      }, {
+        x: 0,
+        y: 10
+      }, {
+        x: 10,
+        y: 5
+      }]
+    }
+}
+```
+
 ### Inputs
 
 | Input | Purpose |
 | ------ | ------ |
 | chartConfig:required | chart config including data, styles, labels |
-| chartType:required | Type of chart like line, pie, bar, doughnut, polarArea, radar, bubble |
+| chartType:required | Type of chart like line, pie, bar, doughnut, polarArea, radar, bubble, scatter |
 | isLabelShow:optional | boolean, it's true in case we want to display labels othewise false |
 
 ### Events

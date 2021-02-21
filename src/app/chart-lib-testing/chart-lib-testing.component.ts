@@ -264,6 +264,36 @@ export class ChartLibTestingComponent implements OnInit {
     ]
   };
 
+  scatterChartConfig = {
+    datasets: [{
+      label: 'Label1',
+      backgroundColor: "#ff6384",
+      data: [{
+        x: -10,
+        y: 0
+      }, {
+        x: 0,
+        y: 10
+      }, {
+        x: 10,
+        y: 5
+      }]
+    },{
+      label: 'Label2',
+      backgroundColor: "#ff6384",
+      data: [{
+        x: -20,
+        y: 5
+      }, {
+        x: 0,
+        y: 10
+      }, {
+        x: 10,
+        y: 5
+      }]
+    }]
+  };
+
   constructor() { }
 
   ngOnInit(): void {

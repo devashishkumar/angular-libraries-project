@@ -1,36 +1,45 @@
-### What's new in version 1.2.0
-
-We can pass custom text in files upload button, we can check valid/invalid files list in dialog and select which files we want to upload from the selected files list using files uploader. Demo URL attached with this version
-
 # Angular single/multipe file uploader
 
-Angular single/multiple file uploader. We Just need to pass configuration as an input all the work handle by uploader component based on passed configuration
+Angular single/multiple file uploader. We Just need to pass configuration as an input all the work handle by uploader component based on passed configuration. We can pass custom text in files upload button, we can check valid/invalid files list in dialog and select which files we want to upload from the selected files list using files uploader. Demo URL attached with this version
 
 ## Features
 
 - Multiple File Uploads
 - Max File Size, Accepted file types validation
-- differentiate valid/invalid files as per passed cofiguration
+- Differentiate valid/invalid files as per passed cofiguration
 - We can passed files type what we want to upload
 - Upload files on the basis of passed configuration
 - Provide lot of other methods so that we can handle files as per our requirements
 - Externally controllable via Angular bindings and methods
 
-### How we use Angular file uploader in our application
+## Installation
+
+```
+npm install file-upload-angular --save
+```
+and import module in app.module file
+```javascript
+
+import { FileUploadAngularModule } from 'file-upload-angular';
+
+imports: [
+    FileUploadAngularModule
+]
+```
 
 ## Basic Usage
 
 ```html
-  <file-upload-angular
+  <lib-file-upload
       #fileUploader
       [multiple]="false"
       [config]="config"
       [buttonText]="'Select Files'"
       (fileUploadEmitter)="fileUploadHandler($event)"
       (filesEmitter)="handleFiles($event)"
-    ></file-upload-angular>
+    ></lib-file-upload>
 ```
-### config should be in below format
+### file upload config
 ```
 config = {
         maxSize: 10,
@@ -41,6 +50,9 @@ config = {
         },
         formatsAllowed: ".jpg, .png, .mp4"
       }
+```
+
+```html
 we can pass uploadConfig in case we want to upload files from uploader. fileUploadEmitter event will trigger in case success/failure with the service response. Max Size will used user to restrict files upload within provide files size. Our uploader will consider maxSize in MB. formatsAllowed will be use in case we want user to restrict file types to upload
 ```
 
@@ -71,21 +83,6 @@ this.filesEmitter.emit({
       validFiles: validFilesList,
       invalidFiles: invalidFilesList (in case max size exceed or invalid format),
     });
-```
-
-## Installation
-
-```
-npm install file-upload-angular --save
-and import module in app.module file
-```
-
-```javascript
-import { FileUploadAngularModule } from 'file-upload-angular';
-
-imports: [
-    FileUploadAngularModule
-]
 ```
 
 ### how we use uploader component methods
