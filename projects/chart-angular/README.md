@@ -1,10 +1,12 @@
 ### Documentation
 
-This library is used to generate charts in your angular application in an easiest way
+This Library is used to display/generate charts in our angular application
 
 ### Installation
 
+```sh
 First we need to add chart.js file in application index.html file
+```
 
 ```sh
 npm install chart-angular
@@ -19,7 +21,7 @@ imports: [
   ]
 ```
 
-### How we use chart library in our application
+### chart-angular library usage in our application
 
 ```sh
 <lib-chart-angular [chartConfig]="chartConfig" [chartType]="'line'" (labelClicked)="ourMethod($event)"
@@ -199,11 +201,11 @@ scatterChartConfig = {
 
 ### Inputs
 
-| Input | Purpose |
-| ------ | ------ |
-| chartConfig:required | chart config including data, styles, labels |
-| chartType:required | Type of chart like line, pie, bar, doughnut, polarArea, radar, bubble, scatter |
-| isLabelShow:optional | boolean, it's true in case we want to display labels othewise false |
+| Input | Type | Required/Optional| Purpose |
+| ------ | ------ | ------ | ------ |
+| chartConfig | object |required | chart config including data, styles, labels |
+| chartType | string |required | Type of chart like line, pie, bar, doughnut, polarArea, radar, bubble, scatter |
+| isLabelShow | boolean |required | It's true in case we want to display labels othewise false |
 
 ### Events
 

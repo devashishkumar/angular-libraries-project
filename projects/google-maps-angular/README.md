@@ -1,6 +1,6 @@
 ### Documentation
 
-This library is use to render google maps in your application. you will have to pass 'latLong' as a input to display google maps in your application. in case you want to add markers of your map neary by locations you will have to pass markers data as per the below defined format. when user click on any particular marker an event will execute and user will notify on which marker user has been clicked
+This Library is use to render google maps in our application. We will have to pass 'latLong' as a input to display google maps in our application. in case we want to add markers of our map neary by locations we will have to pass markers data as per the below defined format. when user click on any particular marker an event will execute and user will notify on which marker user has been clicked
 
 ### Installation
 
@@ -17,26 +17,25 @@ imports: [
   ]
 ```
 
-### How we use google-maps-angular library in our applications
+### google-maps-angular library usage in our application
 
 ```sh
-<lib-google-maps-angular (markerClicked)="yourComponentMethod($event)" [markers]="markers"
-    [latLong]="latLong" [apiKey]="'your google api key'" [googleMapDefaultIcon]="googleMapDefaultIcon"></lib-google-maps-angular>
+<lib-google-maps-angular (markerClicked)="yourComponentMethod($event)" [markers]="markers" [latLong]="latLong" [apiKey]="'google api key'" [googleMapDefaultIcon]="googleMapDefaultIcon"></lib-google-maps-angular>
 ```
 
 ### latLong config format
 ```sh
 latLong = {
-    lat: your latitide,
-    long: your longitude
+    lat: 'your latitide',
+    long: 'your longitude'
   };
 ```
 ### markers config format
 ```sh
 markers = [
     {
-      lat: your marker latitude,
-      long: your marker longitude,
+      lat: 'marker latitude',
+      long: 'marker longitude',
       labelDetails: {
         text: 'Marker Text display on marker this is required',
         fontWeight: 'normal',
@@ -48,12 +47,12 @@ markers = [
 ```
 ### Inputs
 
-| Input | Purpose |
-| ------ | ------ |
-| apiKey:required | This is a google maps api key |
-| latLong:required | This is an object in which we will pass lat/long to display map of that particular area |
-| googleMapDefaultIcon:optional | custom icon path which you want to display as a marker icon |
-| markers:optional | we will pass as an array in case we want to display neary by markers in that particular map |
+| Input | Type | Required/Optional| Purpose |
+| ------ | ------ | ------ | ------ |
+| apiKey | string | required | Google Map API key |
+| latLong | object | required | We will pass lat/long to display map of that particular area |
+| googleMapDefaultIcon | string | optional | Custom icon path which we want to display as a marker icon |
+| markers | array | optional | We will pass as an array in case we want to display nearby by markers in that particular map |
 
 ### Events
 
