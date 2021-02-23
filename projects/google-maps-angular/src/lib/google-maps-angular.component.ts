@@ -38,7 +38,7 @@ export class GoogleMapsAngularComponent implements OnInit {
   /**
    * load google maps
    */
-  loadMap() {
+  private loadMap() {
     const googleInit = this.getGoogleInitData(this.latLong.lat, this.latLong.long);
     this.nMap = new google.maps.Map(document.getElementById(this.divId), googleInit);
     this.renderMarkers(this.latLong);
@@ -49,7 +49,7 @@ export class GoogleMapsAngularComponent implements OnInit {
    * @param lattitude float
    * @param longtitude float
    */
-  getGoogleInitData(lattitude, longtitude) {
+  private getGoogleInitData(lattitude, longtitude) {
     return {
       zoom: 16,
       center: new google.maps.LatLng(lattitude, longtitude),
@@ -63,7 +63,7 @@ export class GoogleMapsAngularComponent implements OnInit {
    * generate dynamic string
    * @param length number
    */
-  generateDynamicString(length) {
+  private generateDynamicString(length) {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
@@ -73,7 +73,7 @@ export class GoogleMapsAngularComponent implements OnInit {
     return result;
   }
 
-  markerIconConfiguration(currIcon, labelX) {
+  private markerIconConfiguration(currIcon, labelX) {
     return {
       url: currIcon,
       size: new google.maps.Size(45, 45),
@@ -88,7 +88,7 @@ export class GoogleMapsAngularComponent implements OnInit {
    * get closest latitudes/longitudes
    * @param event object
    */
-  renderMarkers(event) {
+  private renderMarkers(event) {
     const lat = event.long;
     const lng = event.long;
     const R = this.radius; // radius of earth in km

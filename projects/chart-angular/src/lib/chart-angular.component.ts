@@ -9,6 +9,7 @@ declare var Chart: any;
 export class ChartAngularComponent implements OnInit {
 
   divId = '';
+  chartObj: any;
   @Input() chartConfig: any = {};
   @Input() chartType = '';
   @Input() isLabelShow = true;
@@ -28,7 +29,7 @@ export class ChartAngularComponent implements OnInit {
    * generate random string as per passed number length
    * @param length number
    */
-  generateDynamicString(length) {
+  private generateDynamicString(length) {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const charactersLength = characters.length;
@@ -43,7 +44,7 @@ export class ChartAngularComponent implements OnInit {
   /**
    * create chart
    */
-  createChart() {
+  private createChart() {
     const self = this;
     if (!document.getElementById(this.divId)) {
       return;
@@ -51,7 +52,7 @@ export class ChartAngularComponent implements OnInit {
     const canvasElem = document.getElementById(this.divId) as HTMLCanvasElement;
     const ctx = canvasElem.getContext('2d');
     // Chart.defaults.global.legend.display = this.isLabelShow;
-    const chart = new Chart(ctx, {
+    this.chartObj = new Chart(ctx, {
       // The type of chart we want to create
       type: this.chartType,
 
@@ -81,10 +82,21 @@ export class ChartAngularComponent implements OnInit {
   }
 
   /**
+   * animate chart
+   */
+  private animateChart() {
+    this.chartObj.destroy();
+    setTimeout(() => {
+      this.createChart();
+    }, 100);
+    
+  }
+
+  /**
    * bind click event on chart
    * @param chart chart object
    */
-  bindChartClickEvent(chart) {
+  private bindChartClickEvent(chart) {
     if (!document.getElementById(this.divId) || !chart) {
       return;
     }
