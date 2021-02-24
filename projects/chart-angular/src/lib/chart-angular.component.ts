@@ -59,7 +59,6 @@ export class ChartAngularComponent implements OnInit {
       // The data for our dataset
       data: this.chartConfig,
 
-      // Configuration options go here
       options: {
         legend: {
           display: this.isLabelShow,

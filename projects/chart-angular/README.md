@@ -205,7 +205,7 @@ scatterChartConfig = {
 | ------ | ------ | ------ | ------ |
 | chartConfig | object |required | chart config including data, styles, labels |
 | chartType | string |required | Type of chart like line, pie, bar, doughnut, polarArea, radar, bubble, scatter |
-| isLabelShow | boolean |required | It's true in case we want to display labels othewise false |
+| isLabelShow | boolean |optional | It's true in case we want to display labels othewise false |
 
 ### Events
 

@@ -111,7 +111,6 @@ export class GoogleMapsAngularComponent implements OnInit {
       marker.setValues({ id: i, type: currentType });
       ((markerObj, l) => {
         google.maps.event.addListener(markerObj, 'click', () => {
-          // marker.setIcon(this.googleMapActiveIcon, 48, 22);
           this.markerClicked.emit({ rowClicked: l });
         });
       })(marker, i);
