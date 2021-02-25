@@ -77,7 +77,6 @@ export class ChartAngularComponent implements OnInit {
         }
       }
     });
-    // this.bindChartClickEvent(chart);
   }
 
   /**

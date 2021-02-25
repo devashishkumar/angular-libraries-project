@@ -201,7 +201,7 @@ scatterChartConfig = {
 
 ### Inputs
 
-| Input | Type | Required/Optional| Purpose |
+| Input | Type | Required/Optional| Uses |
 | ------ | ------ | ------ | ------ |
 | chartConfig | object |required | chart config including data, styles, labels |
 | chartType | string |required | Type of chart like line, pie, bar, doughnut, polarArea, radar, bubble, scatter |
@@ -209,7 +209,7 @@ scatterChartConfig = {
 
 ### Events
 
-| Output | Purpose |
+| Output | Uses |
 | ------ | ------ |
 | labelClicked | This emitter will trigger when user click on any particular chart label and return that particular label information|
 | chartClicked | This emitter will trigger when user click on any specific chart section and return that particular section information|

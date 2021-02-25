@@ -89,12 +89,9 @@ export class GoogleMapsAngularComponent implements OnInit {
    * @param event object
    */
   private renderMarkers(event) {
-    const lat = event.long;
-    const lng = event.long;
-    const R = this.radius; // radius of earth in km
-
-    // window.console.log(this.nMap.marker, '70');
-    // return;
+    // const lat = event.long;
+    // const lng = event.long;
+    // const R = this.radius; // radius of earth in km
     for (let i = 0; i < this.markers.length; i++) {
       const currentLat = this.markers[i].lat;
       const currentLong = this.markers[i].long;

@@ -47,7 +47,7 @@ markers = [
 ```
 ### Inputs
 
-| Input | Type | Required/Optional| Purpose |
+| Input | Type | Required/Optional| Uses |
 | ------ | ------ | ------ | ------ |
 | apiKey | string | required | Google Map API key |
 | latLong | object | required | We will pass lat/long to display map of that particular area |
@@ -56,7 +56,7 @@ markers = [
 
 ### Events
 
-| Output | Purpose |
+| Output | Uses |
 | ------ | ------ |
 | markerClicked | This emitter will trigger when user click on any particular marker and return that particular marker information|
 
