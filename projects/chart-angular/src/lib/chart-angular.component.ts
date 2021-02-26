@@ -69,7 +69,7 @@ export class ChartAngularComponent implements OnInit {
         },
         onClick(e) {
           const element = this.getElementAtEvent(e);
-          if (element.length > 0) {
+          if (element && element.length > 0) {
             const datasetLabel = this.config.data.datasets[element[0]._datasetIndex].label;
             const data = this.config.data.datasets[element[0]._datasetIndex].data[element[0]._index];
             self.chartClicked.emit({ label: datasetLabel, index: element[0]._datasetIndex });

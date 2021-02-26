@@ -41,7 +41,7 @@ export class GoogleMapsAngularComponent implements OnInit {
   private loadMap() {
     const googleInit = this.getGoogleInitData(this.latLong.lat, this.latLong.long);
     this.nMap = new google.maps.Map(document.getElementById(this.divId), googleInit);
-    this.renderMarkers(this.latLong);
+    this.renderMarkers();
   }
 
   /**
@@ -88,31 +88,29 @@ export class GoogleMapsAngularComponent implements OnInit {
    * get closest latitudes/longitudes
    * @param event object
    */
-  private renderMarkers(event) {
-    // const lat = event.long;
-    // const lng = event.long;
-    // const R = this.radius; // radius of earth in km
-    for (let i = 0; i < this.markers.length; i++) {
-      const currentLat = this.markers[i].lat;
-      const currentLong = this.markers[i].long;
-      const currentType = this.markers[i].type;
+  private renderMarkers() {
+    if (this.markers && this.markers.length > 0) {
+      this.markers.forEach((currentMarker, i) => {
+        const currentLat = currentMarker.lat;
+        const currentLong = currentMarker.long;
+        const currentType = currentMarker.type;
 
-      const marker = new google.maps.Marker({
-        position: new google.maps.LatLng(currentLat, currentLong),
-        map: this.nMap,
-        icon: this.googleMapDefaultIcon ?
-        this.markerIconConfiguration(this.googleMapDefaultIcon, 22) : '',
-        label: this.markers && this.markers[i] ? this.markers[i].labelDetails : {}
-      });
-
-      marker.setValues({ id: i, type: currentType });
-      ((markerObj, l) => {
-        google.maps.event.addListener(markerObj, 'click', () => {
-          this.markerClicked.emit({ rowClicked: l });
+        const marker = new google.maps.Marker({
+          position: new google.maps.LatLng(currentLat, currentLong),
+          map: this.nMap,
+          icon: this.googleMapDefaultIcon ?
+          this.markerIconConfiguration(this.googleMapDefaultIcon, 22) : '',
+          label: this.markers && this.markers[i] ? this.markers[i].labelDetails : {}
         });
-      })(marker, i);
-      this.customMarkers.push(marker);
+
+        marker.setValues({ id: i, type: currentType });
+        ((markerObj, l) => {
+          google.maps.event.addListener(markerObj, 'click', () => {
+            this.markerClicked.emit({ rowClicked: l });
+          });
+        })(marker, i);
+        this.customMarkers.push(marker);
+      });
     }
   }
-
 }
