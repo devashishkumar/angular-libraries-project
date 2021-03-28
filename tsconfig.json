@@ -31,6 +31,10 @@
       "chart-angular": [
         "dist/chart-angular/chart-angular",
         "dist/chart-angular"
+      ],
+      "file-saver-angular": [
+        "dist/file-saver-angular/file-saver-angular",
+        "dist/file-saver-angular"
       ]
     }
   },

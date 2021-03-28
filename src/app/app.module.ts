@@ -10,6 +10,7 @@ import {ChartAngularComponent} from './../../projects/chart-angular/src/lib/char
 
 import { FormsModule } from '@angular/forms';
 import { ChartLibTestingComponent } from './chart-lib-testing/chart-lib-testing.component';
+import { TestFileSaverComponent } from './test-file-saver/test-file-saver.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ChartLibTestingComponent } from './chart-lib-testing/chart-lib-testing.
     GoogleMapsAngularComponent,
     FileUploadAngularComponent,
     ChartLibTestingComponent,
-    ChartAngularComponent
+    ChartAngularComponent,
+    TestFileSaverComponent
   ], exports: [
   ],
   imports: [
