@@ -77,7 +77,7 @@ export class FileSaverAngularService {
         }).join(separator);
       }).join('\n');
 
-    const blob = new Blob([csvContent], { type: 'text/xls;charset=utf-8;' });
+    const blob = new Blob([csvContent], { type: 'application/xls;charset=utf-8;' });
     if (navigator.msSaveBlob) { // IE 10+
       navigator.msSaveBlob(blob, filename);
     } else {

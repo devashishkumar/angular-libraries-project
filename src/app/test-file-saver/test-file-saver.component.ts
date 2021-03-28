@@ -21,7 +21,7 @@ export class TestFileSaverComponent implements OnInit {
           Language: 'PHP',
           Framework: 'Laravel'
         }
-      ], 'test.csv'
+      ], 'test.xls'
     );
   }
 
