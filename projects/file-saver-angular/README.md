@@ -1,6 +1,6 @@
 ### Documentation
 
-This Library is used to export data to csv/excel
+This library is used to export data to csv/excel
 
 ### Installation
 

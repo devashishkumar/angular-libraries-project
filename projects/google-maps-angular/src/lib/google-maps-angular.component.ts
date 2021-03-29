@@ -73,6 +73,12 @@ export class GoogleMapsAngularComponent implements OnInit {
     return result;
   }
 
+  /**
+   * 
+   * @param currIcon marker icon
+   * @param labelX label x position
+   * @returns 
+   */
   private markerIconConfiguration(currIcon, labelX) {
     return {
       url: currIcon,

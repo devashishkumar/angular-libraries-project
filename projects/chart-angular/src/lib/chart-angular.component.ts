@@ -51,7 +51,6 @@ export class ChartAngularComponent implements OnInit {
     }
     const canvasElem = document.getElementById(this.divId) as HTMLCanvasElement;
     const ctx = canvasElem.getContext('2d');
-    // Chart.defaults.global.legend.display = this.isLabelShow;
     this.chartObj = new Chart(ctx, {
       // The type of chart we want to create
       type: this.chartType,
