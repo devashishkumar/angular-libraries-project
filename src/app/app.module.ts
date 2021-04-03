@@ -11,6 +11,9 @@ import {ChartAngularComponent} from './../../projects/chart-angular/src/lib/char
 import { FormsModule } from '@angular/forms';
 import { ChartLibTestingComponent } from './chart-lib-testing/chart-lib-testing.component';
 import { TestFileSaverComponent } from './test-file-saver/test-file-saver.component';
+import { TestGanttChartComponent } from './test-gantt-chart/test-gantt-chart.component';
+import { GanttChartAngularModule } from 'projects/gantt-chart-angular/src/public-api';
+
 
 
 @NgModule({
@@ -20,13 +23,15 @@ import { TestFileSaverComponent } from './test-file-saver/test-file-saver.compon
     FileUploadAngularComponent,
     ChartLibTestingComponent,
     ChartAngularComponent,
-    TestFileSaverComponent
+    TestFileSaverComponent,
+    TestGanttChartComponent
   ], exports: [
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    GanttChartAngularModule
     // GoogleMapsAngularModule
   ],
   providers: [],

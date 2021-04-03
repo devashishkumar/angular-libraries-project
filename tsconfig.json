@@ -35,6 +35,10 @@
       "file-saver-angular": [
         "dist/file-saver-angular/file-saver-angular",
         "dist/file-saver-angular"
+      ],
+      "gantt-chart-angular": [
+        "dist/gantt-chart-angular/gantt-chart-angular",
+        "dist/gantt-chart-angular"
       ]
     }
   },
