@@ -1,4 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { GoogleMapsAngularService } from './google-maps-angular.service';
+
 declare var google: any;
 
 @Component({
@@ -16,19 +18,22 @@ export class GoogleMapsAngularComponent implements OnInit {
   customMarkers = [];
   @Input() googleMapDefaultIcon = '';
   @Input() googleMapActiveIcon = '';
-  @Input() apiKey = '';
 
-  constructor() { }
+  constructor(private mapsServiceObj: GoogleMapsAngularService) { }
 
   ngOnInit(): void {
-    const googleMapScript = document.createElement('SCRIPT');
-    googleMapScript.setAttribute(
-      'src',
-      `https://maps.googleapis.com/maps/api/js?key=${this.apiKey}&**callback=initMap`
-    );
-    googleMapScript.setAttribute('defer', '');
-    googleMapScript.setAttribute('async', '');
-    document.head.appendChild(googleMapScript);
+    if (!document.getElementById('googlemaps')) {
+      const googleMapScript = document.createElement('SCRIPT');
+      const googleMapsKey = this.mapsServiceObj['googleMapsKey'];
+      googleMapScript.setAttribute(
+        'src',
+        `https://maps.googleapis.com/maps/api/js?key=${googleMapsKey}&**callback=initMap`
+      );
+      googleMapScript.setAttribute('id', 'googlemaps')
+      googleMapScript.setAttribute('defer', '');
+      googleMapScript.setAttribute('async', '');
+      document.head.appendChild(googleMapScript);
+    }
     this.divId = this.generateDynamicString(10);
     setTimeout(() => {
       this.loadMap();
@@ -53,9 +58,11 @@ export class GoogleMapsAngularComponent implements OnInit {
     return {
       zoom: 16,
       center: new google.maps.LatLng(lattitude, longtitude),
-      styles: [{ featureType: 'administrative.country',
-      elementType: 'geometry',
-      stylers: [{ visibility: 'simplified' }, { hue: '#ff0000' }] }]
+      styles: [{
+        featureType: 'administrative.country',
+        elementType: 'geometry',
+        stylers: [{ visibility: 'simplified' }, { hue: '#ff0000' }]
+      }]
     };
   }
 
@@ -105,7 +112,7 @@ export class GoogleMapsAngularComponent implements OnInit {
           position: new google.maps.LatLng(currentLat, currentLong),
           map: this.nMap,
           icon: this.googleMapDefaultIcon ?
-          this.markerIconConfiguration(this.googleMapDefaultIcon, 22) : '',
+            this.markerIconConfiguration(this.googleMapDefaultIcon, 22) : '',
           label: this.markers && this.markers[i] ? this.markers[i].labelDetails : {}
         });
 

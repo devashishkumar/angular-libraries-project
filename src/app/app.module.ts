@@ -13,13 +13,13 @@ import { ChartLibTestingComponent } from './chart-lib-testing/chart-lib-testing.
 import { TestFileSaverComponent } from './test-file-saver/test-file-saver.component';
 import { TestGanttChartComponent } from './test-gantt-chart/test-gantt-chart.component';
 import { GanttChartAngularModule } from 'projects/gantt-chart-angular/src/public-api';
+import { GoogleMapsAngularModule } from 'projects/google-maps-angular/src/dist';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GoogleMapsAngularComponent,
     FileUploadAngularComponent,
     ChartLibTestingComponent,
     ChartAngularComponent,
@@ -31,8 +31,8 @@ import { GanttChartAngularModule } from 'projects/gantt-chart-angular/src/public
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    GanttChartAngularModule
-    // GoogleMapsAngularModule
+    GanttChartAngularModule,
+    GoogleMapsAngularModule.forRoot({googleMapsKey: 'AIzaSyBM-Pje26mgUYOfDwfVEAUCZNp-3W8GjwA'})
   ],
   providers: [],
   bootstrap: [AppComponent]

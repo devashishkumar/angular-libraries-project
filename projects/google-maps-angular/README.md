@@ -1,6 +1,6 @@
 ### Documentation
 
-This Library is use to render google maps in our application. We will have to pass 'latLong' as a input to display google maps in our application. in case we want to add markers of our map neary by locations we will have to pass markers data as per the below defined format. when user click on any particular marker an event will execute and user will notify on which marker user has been clicked
+This library is use to render google maps in angular application. We will have to pass 'latLong' as an input to display google maps in our application. in case we want to add markers of our map neary by locations we will have to pass markers data as per the below defined format. when user click on any particular marker an event will execute and user will notify on which marker user has been clicked
 
 ### Installation
 
@@ -8,19 +8,20 @@ This Library is use to render google maps in our application. We will have to pa
 npm install google-maps-angular
 ```
 
-### import GoogleMapsAngularModule in app.module
+### import GoogleMapsAngularModule in app.module and inject as a Root
 
-```sh
+```javascript
 import { GoogleMapsAngularModule } from 'google-maps-angular';
 imports: [
-    GoogleMapsAngularModule
+    GoogleMapsAngularModule.forRoot({googleMapsKey: 'your google maps api key'})
   ]
 ```
 
 ### google-maps-angular library usage in our application
 
 ```sh
-<lib-google-maps-angular (markerClicked)="yourComponentMethod($event)" [markers]="markers" [latLong]="latLong" [apiKey]="'google api key'" [googleMapDefaultIcon]="googleMapDefaultIcon"></lib-google-maps-angular>
+<lib-google-maps-angular (markerClicked)="markerClicked($event)" [markers]="markers"
+    [latLong]="latLong" [googleMapDefaultIcon]="googleMapDefaultIcon"></lib-google-maps-angular>
 ```
 
 ### latLong config format
@@ -49,7 +50,6 @@ markers = [
 
 | Input | Type | Required/Optional| Uses |
 | ------ | ------ | ------ | ------ |
-| apiKey | string | required | Google Map API key |
 | latLong | object | required | We will pass lat/long to display map of that particular area |
 | googleMapDefaultIcon | string | optional | Custom icon path which we want to display as a marker icon |
 | markers | array | optional | We will pass as an array in case we want to display nearby by markers in that particular map |
