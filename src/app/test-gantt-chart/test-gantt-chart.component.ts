@@ -51,10 +51,31 @@ export class TestGanttChartComponent implements OnInit {
         percentComplete:  0,
         pendingReasons: null
       }
-    ]
+    ],
+    options: {
+      height: 275,
+      gantt: {
+        criticalPathEnabled: false,
+        innerGridHorizLine: {
+          stroke: '#ffe0b2',
+          strokeWidth: 2
+        },
+        innerGridTrack: {fill: '#fff3e0'},
+        innerGridDarkTrack: {fill: '#ffcc80'}
+      }
+    }
   }
 
   ngOnInit(): void {
+
+  }
+
+  /**
+   * handle gantt chart click event
+   * @param data object
+   */
+  clickEventHandler(data) {
+    console.log(data, '78');
   }
 
 }

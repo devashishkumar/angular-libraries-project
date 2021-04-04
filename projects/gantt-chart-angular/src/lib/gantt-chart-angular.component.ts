@@ -1,8 +1,8 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 declare var google: any;
 
 @Component({
-  selector: 'lib-gantt-chart-angular',
+  selector: 'gantt-chart-angular',
   templateUrl: './gantt-chart-angular.component.html',
   styleUrls: ['gantt-chart-angular.component.css']
 })
@@ -10,6 +10,7 @@ export class GanttChartAngularComponent implements OnInit {
 
   @ViewChild("chartContainer") chartContainer: ElementRef;
   @Input() config: any = {};
+  @Output() onClick = new EventEmitter();
 
   constructor() { }
 
@@ -22,10 +23,10 @@ export class GanttChartAngularComponent implements OnInit {
   /**
    * generate chart
    */
-  generateChart() {
+  private generateChart() {
     google.charts.load('current', {'packages':['gantt']});
     google.charts.setOnLoadCallback(() => {
-      var data = new google.visualization.DataTable();
+      const data = new google.visualization.DataTable();
 
       if (this.config && this.config.columns && this.config.columns.length) {
         this.config.columns.forEach(col => {
@@ -43,23 +44,14 @@ export class GanttChartAngularComponent implements OnInit {
         });
         data.addRows(temp);
       }
+      const options = this.config.options;
   
-      var options = {
-        height: 275,
-        // gantt: {
-        //   criticalPathEnabled: false,
-        //   innerGridHorizLine: {
-        //     stroke: '#ffe0b2',
-        //     strokeWidth: 2
-        //   },
-        //   innerGridTrack: {fill: '#fff3e0'},
-        //   innerGridDarkTrack: {fill: '#ffcc80'}
-        // }
-      };
-  
-      var chart = new google.visualization.Gantt(this.chartContainer.nativeElement);
-  
+      const chart = new google.visualization.Gantt(this.chartContainer.nativeElement);
       chart.draw(data, options);
+      google.visualization.events.addListener(chart, 'select', () => {
+        const selection = chart.getSelection();
+        this.onClick.emit({selectedRow: selection[0]});
+      });
     });
   }
 

@@ -25,7 +25,7 @@ imports: [
 ### gantt-chart-angular library usage in our application
 
 ```sh
-<lib-gantt-chart-angular [config]="config"></lib-gantt-chart-angular>
+<gantt-chart-angular [config]="config" (onClick)="clickEventHandler($event)"></gantt-chart-angular>
 ```
 
 ### config format in which we will pass columns and data as array
@@ -73,6 +73,30 @@ config = {
         percentComplete:  0,
         pendingReasons: null
       }
-    ]
+    ],
+    options: {
+      height: 275,
+      gantt: {
+        criticalPathEnabled: false,
+        innerGridHorizLine: {
+          stroke: '#ffe0b2',
+          strokeWidth: 2
+        },
+        innerGridTrack: {fill: '#fff3e0'},
+        innerGridDarkTrack: {fill: '#ffcc80'}
+      }
+    }
   };
 ```
+
+### Inputs
+
+| Input | Type | Required/Optional | Uses |
+| ------ | ------ | ------ | ------ |
+| config | object | required | configuration including chart columns, data and options like chart style |
+
+### Events
+
+| Output | Uses |
+| ------ | ------ |
+| onClick | Emitter will trigger when user click on any particular row and return information of clicked row|
