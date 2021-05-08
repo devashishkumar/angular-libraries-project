@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
     "@types/googlemaps": "^3.43.1",
+    "@types/socket.io-client": "^1.4.36",
     "angular2-google-maps": "^0.17.0",
     "ashish-angular-google-maps": "file:dist/ashish-angular-google-maps",
     "rxjs": "~6.5.4",

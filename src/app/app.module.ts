@@ -14,6 +14,8 @@ import { TestFileSaverComponent } from './test-file-saver/test-file-saver.compon
 import { TestGanttChartComponent } from './test-gantt-chart/test-gantt-chart.component';
 import { GanttChartAngularModule } from 'projects/gantt-chart-angular/src/public-api';
 import { GoogleMapsAngularModule } from 'projects/google-maps-angular/src/dist';
+import { AngularSocketModule } from 'projects/angular-socket/src/public-api';
+const config = { url: 'http://localhost:9898/', options: {} };
 
 
 
@@ -32,7 +34,8 @@ import { GoogleMapsAngularModule } from 'projects/google-maps-angular/src/dist';
     AppRoutingModule,
     FormsModule,
     GanttChartAngularModule,
-    GoogleMapsAngularModule.forRoot({googleMapsKey: 'AIzaSyBM-Pje26mgUYOfDwfVEAUCZNp-3W8GjwA'})
+    GoogleMapsAngularModule.forRoot({googleMapsKey: 'AIzaSyBM-Pje26mgUYOfDwfVEAUCZNp-3W8GjwA'}),
+    AngularSocketModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]

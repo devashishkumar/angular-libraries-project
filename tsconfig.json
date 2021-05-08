@@ -39,6 +39,10 @@
       "gantt-chart-angular": [
         "dist/gantt-chart-angular/gantt-chart-angular",
         "dist/gantt-chart-angular"
+      ],
+      "angular-socket": [
+        "dist/angular-socket/angular-socket",
+        "dist/angular-socket"
       ]
     }
   },

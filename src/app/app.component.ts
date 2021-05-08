@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { AngularSocketService } from 'projects/angular-socket/src/public-api';
 import { FileUploadAngularComponent } from 'projects/file-upload-angular/src/lib/file-upload-angular.component';
 
 @Component({
@@ -92,6 +93,7 @@ export class AppComponent implements OnInit {
   };
   @ViewChild('fileUploader') fileUploaderObj: FileUploadAngularComponent;
 
+  constructor(private socketServiceObj: AngularSocketService) {}
   ngOnInit() {
   }
 
