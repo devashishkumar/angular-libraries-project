@@ -100,9 +100,3 @@ config = {
 | Output | Uses |
 | ------ | ------ |
 | onClick | Emitter will trigger when user click on any particular row and return information of clicked row|
-
-### LICENSE
-MIT
-
-### Author
-Ashish K

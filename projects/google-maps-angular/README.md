@@ -61,9 +61,3 @@ markers = [
 | markerClicked | This emitter will trigger when user click on any particular marker and return that particular marker information|
 
 ### [Demo](https://googlemapsangulardemo.herokuapp.com/)
-
-### LICENSE
-MIT
-
-### Author
-Ashish K

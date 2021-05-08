@@ -213,9 +213,3 @@ scatterChartConfig = {
 | ------ | ------ |
 | labelClicked | This emitter will trigger when user click on any particular chart label and return that particular label information|
 | chartClicked | This emitter will trigger when user click on any specific chart section and return that particular section information|
-
-### LICENSE
-MIT
-
-### Author
-Ashish K

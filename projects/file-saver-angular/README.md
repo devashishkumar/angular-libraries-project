@@ -56,9 +56,3 @@ this.fileSaverServiceObj.exportToExcel(
 1. first parameter is a data array 
 2. second parameter is a file name
 ```
-
-### LICENSE
-MIT
-
-### Author
-Ashish K

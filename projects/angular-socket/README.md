@@ -44,9 +44,3 @@ const io = require('socket.io')(socketServer, {
 });
 socketServer.listen(9898);
 ```
-
-### LICENSE
-MIT
-
-### Author
-Ashish K
