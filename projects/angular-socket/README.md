@@ -1,10 +1,10 @@
-# Angular socket io Documentation
+### Angular socket io Documentation
 
-## Installation
+### Installation
 
 `npm install angular-socket`
 
-## import AngularSocketModule in app.module and inject as a Root
+### import AngularSocketModule in app.module and inject as a Root
 
 ```ts
 import { AngularSocketModule } from 'angular-socket';
@@ -35,6 +35,7 @@ receiveMessage() {
 
 ### Note: In case you are facing CORS errors in your angular app while getting socket library. Just allow cors from your server to * or to particular domain like this:
 
+```javascript
 const socketServer = require('http').Server(app);
 const io = require('socket.io')(socketServer, {
   cors: {
@@ -42,6 +43,7 @@ const io = require('socket.io')(socketServer, {
   }
 });
 socketServer.listen(9898);
+```
 
 ## LICENSE
 
