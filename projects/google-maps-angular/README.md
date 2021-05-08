@@ -62,3 +62,8 @@ markers = [
 
 ### [Demo](https://googlemapsangulardemo.herokuapp.com/)
 
+### LICENSE
+MIT
+
+### Author
+Ashish K
