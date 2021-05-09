@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 declare var Chart: any;
 
 @Component({
@@ -8,37 +8,20 @@ declare var Chart: any;
 })
 export class ChartAngularComponent implements OnInit {
 
-  divId = '';
   chartObj: any;
   @Input() chartConfig: any = {};
   @Input() chartType = '';
   @Input() isLabelShow = true;
   @Output() labelClicked = new EventEmitter();
   @Output() chartClicked = new EventEmitter();
+  @ViewChild('chart', {static: false}) chartContainer: ElementRef;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.divId = this.generateDynamicString(10);
     setTimeout(() => {
       this.createChart();
     }, 0);
-  }
-
-  /**
-   * generate random string as per passed number length
-   * @param length number
-   */
-  private generateDynamicString(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(
-        Math.floor(Math.random() * charactersLength)
-      );
-    }
-    return result;
   }
 
   /**
@@ -46,10 +29,10 @@ export class ChartAngularComponent implements OnInit {
    */
   private createChart() {
     const self = this;
-    if (!document.getElementById(this.divId)) {
+    if (!this.chartContainer || !this.chartContainer.nativeElement) {
       return;
     }
-    const canvasElem = document.getElementById(this.divId) as HTMLCanvasElement;
+    const canvasElem = this.chartContainer.nativeElement as HTMLCanvasElement;
     const ctx = canvasElem.getContext('2d');
     this.chartObj = new Chart(ctx, {
       // The type of chart we want to create
@@ -94,10 +77,10 @@ export class ChartAngularComponent implements OnInit {
    * @param chart chart object
    */
   private bindChartClickEvent(chart) {
-    if (!document.getElementById(this.divId) || !chart) {
+    if (!this.chartContainer || !this.chartContainer.nativeElement || !chart) {
       return;
     }
-    document.getElementById(this.divId).onclick = (evt) => {
+    this.chartContainer.nativeElement.onclick = (evt) => {
       const activePoints = chart.getElementsAtEvent(evt);
 
       if (activePoints.length > 0) {
