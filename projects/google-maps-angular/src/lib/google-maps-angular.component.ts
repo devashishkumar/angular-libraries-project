@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { GoogleMapsAngularService } from './google-maps-angular.service';
 
 declare var google: any;
@@ -12,9 +12,9 @@ export class GoogleMapsAngularComponent implements OnInit {
   @Input() latLong: any = {};
   @Output() markerClicked = new EventEmitter();
   @Input() markers = [];
+  @ViewChild('map') mapContainer: ElementRef;
   radius: any = 2;
   nMap: any = {};
-  divId = '';
   customMarkers = [];
   @Input() googleMapDefaultIcon = '';
   @Input() googleMapActiveIcon = '';
@@ -34,9 +34,10 @@ export class GoogleMapsAngularComponent implements OnInit {
       googleMapScript.setAttribute('async', '');
       document.head.appendChild(googleMapScript);
     }
-    this.divId = this.generateDynamicString(10);
     setTimeout(() => {
-      this.loadMap();
+      if (this.mapContainer && this.mapContainer.nativeElement) {
+        this.loadMap();
+      }
     }, 2000);
   }
 
@@ -45,7 +46,7 @@ export class GoogleMapsAngularComponent implements OnInit {
    */
   private loadMap() {
     const googleInit = this.getGoogleInitData(this.latLong.lat, this.latLong.long);
-    this.nMap = new google.maps.Map(document.getElementById(this.divId), googleInit);
+    this.nMap = new google.maps.Map(this.mapContainer.nativeElement, googleInit);
     this.renderMarkers();
   }
 
@@ -64,20 +65,6 @@ export class GoogleMapsAngularComponent implements OnInit {
         stylers: [{ visibility: 'simplified' }, { hue: '#ff0000' }]
       }]
     };
-  }
-
-  /**
-   * generate dynamic string
-   * @param length number
-   */
-  private generateDynamicString(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
   }
 
   /**
