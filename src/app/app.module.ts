@@ -15,6 +15,7 @@ import { TestGanttChartComponent } from './test-gantt-chart/test-gantt-chart.com
 import { GanttChartAngularModule } from 'projects/gantt-chart-angular/src/public-api';
 import { GoogleMapsAngularModule } from 'projects/google-maps-angular/src/dist';
 import { AngularSocketModule } from 'projects/angular-socket/src/public-api';
+import { SocketIoNgxModule } from 'projects/socket-io-ngx/src/public-api';
 const config = { url: 'http://localhost:9898/', options: {} };
 
 
@@ -35,7 +36,8 @@ const config = { url: 'http://localhost:9898/', options: {} };
     FormsModule,
     GanttChartAngularModule,
     GoogleMapsAngularModule.forRoot({googleMapsKey: 'AIzaSyBM-Pje26mgUYOfDwfVEAUCZNp-3W8GjwA'}),
-    AngularSocketModule.forRoot(config)
+    AngularSocketModule.forRoot(config),
+    SocketIoNgxModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]

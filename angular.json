@@ -399,6 +399,46 @@
           }
         }
       }
+    },
+    "socket-io-ngx": {
+      "projectType": "library",
+      "root": "projects/socket-io-ngx",
+      "sourceRoot": "projects/socket-io-ngx/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/socket-io-ngx/tsconfig.lib.json",
+            "project": "projects/socket-io-ngx/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/socket-io-ngx/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/socket-io-ngx/src/test.ts",
+            "tsConfig": "projects/socket-io-ngx/tsconfig.spec.json",
+            "karmaConfig": "projects/socket-io-ngx/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/socket-io-ngx/tsconfig.lib.json",
+              "projects/socket-io-ngx/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ashish-gmap-library"
 }

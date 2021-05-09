@@ -43,6 +43,10 @@
       "angular-socket": [
         "dist/angular-socket/angular-socket",
         "dist/angular-socket"
+      ],
+      "socket-io-ngx": [
+        "dist/socket-io-ngx/socket-io-ngx",
+        "dist/socket-io-ngx"
       ]
     }
   },
