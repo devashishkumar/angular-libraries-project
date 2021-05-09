@@ -1,6 +1,6 @@
 {
   "name": "angular-socket",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "peerDependencies": {
     "@angular/common": "^9.1.13",
     "@angular/core": "^9.1.13"
@@ -9,10 +9,14 @@
     "tslib": "^1.10.0"
   },
   "keywords": [
-    "Angular",
-    "Socket io",
+    "angular",
+    "socket io",
+    "socket.io",
     "angular socket",
-    "socket angular"
+    "socket angular",
+    "socket",
+    "web sockets",
+    "websockets"
   ],
   "author": "Ashish K",
   "license": "MIT"
