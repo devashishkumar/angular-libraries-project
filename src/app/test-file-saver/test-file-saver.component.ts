@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { FileSaverAngularService } from 'projects/file-saver-angular/src/public-api';
 
 @Component({
   selector: 'app-test-file-saver',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './test-file-saver.component.html',
   styleUrls: ['./test-file-saver.component.css'],
   providers: [FileSaverAngularService]

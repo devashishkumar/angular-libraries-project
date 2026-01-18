@@ -1,8 +1,11 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 declare var google: any;
 
 @Component({
   selector: 'gantt-chart-angular',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './gantt-chart-angular.component.html',
   styleUrls: ['gantt-chart-angular.component.css']
 })

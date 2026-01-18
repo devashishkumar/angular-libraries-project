@@ -16,9 +16,8 @@
             "outputPath": "dist/ashish-gmap-library",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -39,7 +38,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -62,18 +60,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ashish-gmap-library:build"
+            "buildTarget": "ashish-gmap-library:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ashish-gmap-library:build:production"
+              "buildTarget": "ashish-gmap-library:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ashish-gmap-library:build"
+            "buildTarget": "ashish-gmap-library:build"
           }
         },
         "test": {
@@ -439,6 +437,9 @@
           }
         }
       }
-    }},
-  "defaultProject": "ashish-gmap-library"
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
 }

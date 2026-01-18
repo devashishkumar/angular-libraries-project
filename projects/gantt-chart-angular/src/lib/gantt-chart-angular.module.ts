@@ -4,9 +4,7 @@ import { GanttChartAngularComponent } from './gantt-chart-angular.component';
 
 
 @NgModule({
-  declarations: [GanttChartAngularComponent],
-  imports: [
-  ],
+  imports: [GanttChartAngularComponent],
   exports: [GanttChartAngularComponent]
 })
 export class GanttChartAngularModule { }

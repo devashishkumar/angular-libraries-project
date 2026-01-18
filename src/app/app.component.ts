@@ -1,9 +1,27 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AngularSocketService } from 'projects/angular-socket/src/public-api';
-import { FileUploadAngularComponent } from 'projects/file-upload-angular/src/lib/file-upload-angular.component';
+import { GoogleMapsAngularComponent } from 'projects/google-maps-angular/src/lib/google-maps-angular.component';
+import { GanttChartAngularModule } from 'projects/gantt-chart-angular/src/public-api';
+import { GoogleMapsAngularModule } from 'projects/google-maps-angular/src/dist';
+import { AngularSocketModule } from 'projects/angular-socket/src/public-api';
+import { SocketIoNgxModule } from 'projects/socket-io-ngx/src/public-api';
+import { FileUploadAngularComponent } from 'projects/file-upload-angular/src/public-api';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    GoogleMapsAngularComponent,
+    FileUploadAngularComponent,
+    GanttChartAngularModule,
+    GoogleMapsAngularModule,
+    AngularSocketModule,
+    SocketIoNgxModule
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

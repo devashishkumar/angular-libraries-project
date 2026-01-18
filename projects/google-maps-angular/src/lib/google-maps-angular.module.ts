@@ -20,8 +20,7 @@ import { GoogleMapsAngularService } from './google-maps-angular.service';
 
 
 @NgModule({
-  imports:      [ CommonModule ],
-  declarations: [ GoogleMapsAngularComponent ],
+  imports:      [ CommonModule, GoogleMapsAngularComponent ],
   exports:      [ GoogleMapsAngularComponent ]
 })
 export class GoogleMapsAngularModule {

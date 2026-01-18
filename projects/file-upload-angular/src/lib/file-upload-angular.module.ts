@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [FileUploadAngularComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    FileUploadAngularComponent
   ],
   exports: [FileUploadAngularComponent]
 })

@@ -1,7 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'lib-file-upload',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './file-upload-angular.component.html',
   styleUrls: ['./file-upload-angular.component.css']
 })

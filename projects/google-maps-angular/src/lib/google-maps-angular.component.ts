@@ -1,10 +1,13 @@
 import { Component, Input, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { GoogleMapsAngularService } from './google-maps-angular.service';
 
 declare var google: any;
 
 @Component({
   selector: 'lib-google-maps-angular',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './google-maps-angular.component.html',
   styleUrls: ['./google-maps-angular.component.css']
 })

@@ -10,8 +10,7 @@ export const SOCKET_CONFIG_TOKEN = new InjectionToken<any>(
   '__SOCKET_IO_CONFIG__'
 );
 @NgModule({
-  imports:      [ CommonModule ],
-  declarations: [ AngularSocketComponent ],
+  imports:      [ CommonModule, AngularSocketComponent ],
   exports:      [ AngularSocketComponent ]
 })
 export class AngularSocketModule {

@@ -1,8 +1,12 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 declare var Chart: any;
 
 @Component({
   selector: 'lib-chart-angular',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './chart-angular.component.html',
   styleUrls: ['./chart-angular.component.css']
 })

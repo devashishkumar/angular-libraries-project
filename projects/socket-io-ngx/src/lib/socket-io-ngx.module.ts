@@ -10,9 +10,7 @@ export const SOCKET_CONFIG_TOKEN = new InjectionToken<any>(
 );
 
 @NgModule({
-  declarations: [SocketIoNgxComponent],
-  imports: [
-  ],
+  imports: [SocketIoNgxComponent],
   exports: [SocketIoNgxComponent]
 })
 export class SocketIoNgxModule {

@@ -4,9 +4,7 @@ import { FileSaverAngularComponent } from './file-saver-angular.component';
 
 
 @NgModule({
-  declarations: [FileSaverAngularComponent],
-  imports: [
-  ],
+  imports: [FileSaverAngularComponent],
   exports: [FileSaverAngularComponent]
 })
 export class FileSaverAngularModule { }

@@ -2,8 +2,8 @@
   "name": "google-maps-angular",
   "version": "2.1.9",
   "peerDependencies": {
-    "@angular/common": "^9.1.13",
-    "@angular/core": "^9.1.13"
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0"
   },
   "dependencies": {
     "tslib": "^1.10.0"

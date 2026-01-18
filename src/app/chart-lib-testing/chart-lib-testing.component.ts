@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ChartAngularComponent } from 'projects/chart-angular/src/lib/chart-angular.component';
 
 @Component({
   selector: 'chart-lib-testing',
+  standalone: true,
+  imports: [CommonModule, FormsModule, ChartAngularComponent],
   templateUrl: './chart-lib-testing.component.html',
   styleUrls: ['./chart-lib-testing.component.css']
 })
