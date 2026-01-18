@@ -5,7 +5,7 @@ import { GoogleMapsAngularService } from './google-maps-angular.service';
 declare var google: any;
 
 @Component({
-  selector: 'lib-google-maps-angular',
+  selector: 'ng-google-maps',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './google-maps-angular.component.html',

@@ -20,8 +20,8 @@ imports: [
 ### google-maps-angular library usage in our application
 
 ```sh
-<lib-google-maps-angular (markerClicked)="markerClicked($event)" [markers]="markers"
-    [latLong]="latLong" [googleMapDefaultIcon]="googleMapDefaultIcon"></lib-google-maps-angular>
+<ng-google-maps (markerClicked)="markerClicked($event)" [markers]="markers"
+    [latLong]="latLong" [googleMapDefaultIcon]="googleMapDefaultIcon"></ng-google-maps>
 ```
 
 ### latLong config format

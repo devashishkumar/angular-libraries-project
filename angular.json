@@ -118,7 +118,46 @@
         }
       }
     },
-
+    "gantt-chart-angular": {
+      "projectType": "library",
+      "root": "projects/gantt-chart-angular",
+      "sourceRoot": "projects/gantt-chart-angular/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/gantt-chart-angular/tsconfig.lib.json",
+            "project": "projects/gantt-chart-angular/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/gantt-chart-angular/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gantt-chart-angular/src/test.ts",
+            "tsConfig": "projects/gantt-chart-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/gantt-chart-angular/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gantt-chart-angular/tsconfig.lib.json",
+              "projects/gantt-chart-angular/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "google-maps-angular": {
       "projectType": "library",
       "root": "projects/google-maps-angular",
@@ -158,128 +197,9 @@
           }
         }
       }
-    },
-
-    "chart-angular": {
-      "projectType": "library",
-      "root": "projects/chart-angular",
-      "sourceRoot": "projects/chart-angular/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/chart-angular/tsconfig.lib.json",
-            "project": "projects/chart-angular/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/chart-angular/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/chart-angular/src/test.ts",
-            "tsConfig": "projects/chart-angular/tsconfig.spec.json",
-            "karmaConfig": "projects/chart-angular/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/chart-angular/tsconfig.lib.json",
-              "projects/chart-angular/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
 }
-},
-"cli": {
-  "analytics": false
-}
-    },
-    "angular-socket": {
-      "projectType": "library",
-      "root": "projects/angular-socket",
-      "sourceRoot": "projects/angular-socket/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/angular-socket/tsconfig.lib.json",
-            "project": "projects/angular-socket/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/angular-socket/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/angular-socket/src/test.ts",
-            "tsConfig": "projects/angular-socket/tsconfig.spec.json",
-            "karmaConfig": "projects/angular-socket/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/angular-socket/tsconfig.lib.json",
-              "projects/angular-socket/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "socket-io-ngx": {
-      "projectType": "library",
-      "root": "projects/socket-io-ngx",
-      "sourceRoot": "projects/socket-io-ngx/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/socket-io-ngx/tsconfig.lib.json",
-            "project": "projects/socket-io-ngx/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/socket-io-ngx/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/socket-io-ngx/src/test.ts",
-            "tsConfig": "projects/socket-io-ngx/tsconfig.spec.json",
-            "karmaConfig": "projects/socket-io-ngx/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/socket-io-ngx/tsconfig.lib.json",
-              "projects/socket-io-ngx/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }

@@ -25,7 +25,7 @@ imports: [
 ### gantt-chart-angular library usage in our application
 
 ```sh
-<gantt-chart-angular [config]="config" (onClick)="clickEventHandler($event)"></gantt-chart-angular>
+<ng-gantt-chart [config]="config" (onClick)="clickEventHandler($event)"></ng-gantt-chart>
 ```
 
 ### config format in which we will pass columns and data as array

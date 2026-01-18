@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 declare var google: any;
 
 @Component({
-  selector: 'gantt-chart-angular',
+  selector: 'ng-gantt-chart',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './gantt-chart-angular.component.html',
