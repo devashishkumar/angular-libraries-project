@@ -1,3 +1,10 @@
+## Application contains two packages
+
+```sh
+angular google maps
+angular gantt chart
+```
+
 ## To generate angular packages
 
 ```sh
