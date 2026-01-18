@@ -118,46 +118,7 @@
         }
       }
     },
-    "ashish-angular-google-maps": {
-      "projectType": "library",
-      "root": "projects/ashish-angular-google-maps",
-      "sourceRoot": "projects/ashish-angular-google-maps/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/ashish-angular-google-maps/tsconfig.lib.json",
-            "project": "projects/ashish-angular-google-maps/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ashish-angular-google-maps/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ashish-angular-google-maps/src/test.ts",
-            "tsConfig": "projects/ashish-angular-google-maps/tsconfig.spec.json",
-            "karmaConfig": "projects/ashish-angular-google-maps/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ashish-angular-google-maps/tsconfig.lib.json",
-              "projects/ashish-angular-google-maps/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
+
     "google-maps-angular": {
       "projectType": "library",
       "root": "projects/google-maps-angular",
@@ -198,46 +159,7 @@
         }
       }
     },
-    "file-upload-angular": {
-      "projectType": "library",
-      "root": "projects/file-upload-angular",
-      "sourceRoot": "projects/file-upload-angular/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/file-upload-angular/tsconfig.lib.json",
-            "project": "projects/file-upload-angular/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/file-upload-angular/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/file-upload-angular/src/test.ts",
-            "tsConfig": "projects/file-upload-angular/tsconfig.spec.json",
-            "karmaConfig": "projects/file-upload-angular/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/file-upload-angular/tsconfig.lib.json",
-              "projects/file-upload-angular/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
+
     "chart-angular": {
       "projectType": "library",
       "root": "projects/chart-angular",
@@ -277,86 +199,11 @@
           }
         }
       }
-    },
-    "file-saver-angular": {
-      "projectType": "library",
-      "root": "projects/file-saver-angular",
-      "sourceRoot": "projects/file-saver-angular/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/file-saver-angular/tsconfig.lib.json",
-            "project": "projects/file-saver-angular/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/file-saver-angular/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/file-saver-angular/src/test.ts",
-            "tsConfig": "projects/file-saver-angular/tsconfig.spec.json",
-            "karmaConfig": "projects/file-saver-angular/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/file-saver-angular/tsconfig.lib.json",
-              "projects/file-saver-angular/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "gantt-chart-angular": {
-      "projectType": "library",
-      "root": "projects/gantt-chart-angular",
-      "sourceRoot": "projects/gantt-chart-angular/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/gantt-chart-angular/tsconfig.lib.json",
-            "project": "projects/gantt-chart-angular/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/gantt-chart-angular/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/gantt-chart-angular/src/test.ts",
-            "tsConfig": "projects/gantt-chart-angular/tsconfig.spec.json",
-            "karmaConfig": "projects/gantt-chart-angular/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/gantt-chart-angular/tsconfig.lib.json",
-              "projects/gantt-chart-angular/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
+}
+},
+"cli": {
+  "analytics": false
+}
     },
     "angular-socket": {
       "projectType": "library",
@@ -436,10 +283,3 @@
             ]
           }
         }
-      }
-    }
-  },
-  "cli": {
-    "analytics": false
-  }
-}

@@ -1,13 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AngularSocketService } from 'projects/angular-socket/src/public-api';
 import { GoogleMapsAngularComponent } from 'projects/google-maps-angular/src/lib/google-maps-angular.component';
 import { GanttChartAngularModule } from 'projects/gantt-chart-angular/src/public-api';
 import { GoogleMapsAngularModule } from 'projects/google-maps-angular/src/dist';
-import { AngularSocketModule } from 'projects/angular-socket/src/public-api';
-import { SocketIoNgxModule } from 'projects/socket-io-ngx/src/public-api';
-import { FileUploadAngularComponent } from 'projects/file-upload-angular/src/public-api';
 import { TestGanttChartModule } from './test-gantt-chart/test-gantt-chart.module';
 
 @Component({
@@ -18,16 +14,11 @@ import { TestGanttChartModule } from './test-gantt-chart/test-gantt-chart.module
     FormsModule,
     GanttChartAngularModule,
     GoogleMapsAngularModule,
-    AngularSocketModule,
-    SocketIoNgxModule,
     TestGanttChartModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [
-    AngularSocketService,
-    { provide: 'config', useValue: { url: 'http://localhost:9898/', options: {} } }
-  ]
+  providers: []
 })
 export class AppComponent implements OnInit {
   title = 'ashish-gmap-library';
@@ -100,22 +91,7 @@ export class AppComponent implements OnInit {
   ];
   nMap: any = {};
 
-  // file uploader
-  files = [];
-  config = {
-    maxSize: 120,
-    uploadConfig: {
-      url: "test url",
-      method: "POST",
-      userRef: "test user",
-    },
-    formatsAllowed: ".jpg, .png, .mp4",
-    // formatsAllowed: "",
-    multipleUpload: true,
-  };
-  @ViewChild('fileUploader') fileUploaderObj: FileUploadAngularComponent;
-
-  constructor(private socketServiceObj: AngularSocketService) {}
+  constructor() {}
   ngOnInit() {
   }
 
@@ -128,12 +104,5 @@ export class AppComponent implements OnInit {
     // alert('Please check browser console to get click marker information');
   }
 
-  fileUploadHandler(data: any) {
-  }
-  handleFiles(data) {
-    this.files = data.validFiles;
-  }
-  fileUpload() {
-    // console.log(this.fileUploaderObj.fileUpload());
-  }
+
 }
