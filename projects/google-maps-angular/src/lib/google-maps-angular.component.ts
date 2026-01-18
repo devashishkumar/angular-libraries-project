@@ -12,7 +12,7 @@ declare var google: any;
   styleUrls: ['./google-maps-angular.component.css'],
   providers: [
     GoogleMapsAngularService,
-    { provide: GoogleMapsAngularService, useValue: { googleMapsKey: 'API Key' } }
+    { provide: GoogleMapsAngularService, useValue: { googleMapsKey: 'GoogleMapsApiKey' } }
   ]
 })
 export class GoogleMapsAngularComponent implements OnInit {
