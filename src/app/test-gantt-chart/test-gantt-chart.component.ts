@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { GanttChartAngularComponent } from 'projects/gantt-chart-angular/src/lib/gantt-chart-angular.component';
+import { GanttChartAngularModule } from 'projects/gantt-chart-angular/src/public-api';
 
 @Component({
   selector: 'codewithashish-gantt-chart',
   standalone: true,
-  imports: [CommonModule, FormsModule, GanttChartAngularComponent],
+  imports: [CommonModule, FormsModule, GanttChartAngularModule],
   templateUrl: './test-gantt-chart.component.html',
   styleUrls: ['./test-gantt-chart.component.css']
 })

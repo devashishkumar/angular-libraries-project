@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { GanttChartAngularComponent } from './gantt-chart-angular.component';
 
-
-
 @NgModule({
-  imports: [GanttChartAngularComponent],
+  imports: [CommonModule, GanttChartAngularComponent],
   exports: [GanttChartAngularComponent]
 })
 export class GanttChartAngularModule { }

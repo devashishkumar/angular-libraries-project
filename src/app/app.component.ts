@@ -8,6 +8,7 @@ import { GoogleMapsAngularModule } from 'projects/google-maps-angular/src/dist';
 import { AngularSocketModule } from 'projects/angular-socket/src/public-api';
 import { SocketIoNgxModule } from 'projects/socket-io-ngx/src/public-api';
 import { FileUploadAngularComponent } from 'projects/file-upload-angular/src/public-api';
+import { TestGanttChartModule } from './test-gantt-chart/test-gantt-chart.module';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ import { FileUploadAngularComponent } from 'projects/file-upload-angular/src/pub
     GanttChartAngularModule,
     GoogleMapsAngularModule,
     AngularSocketModule,
-    SocketIoNgxModule
+    SocketIoNgxModule,
+    TestGanttChartModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

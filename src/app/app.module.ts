@@ -9,7 +9,7 @@ import {ChartAngularComponent} from './../../projects/chart-angular/src/lib/char
 import { FormsModule } from '@angular/forms';
 import { ChartLibTestingComponent } from './chart-lib-testing/chart-lib-testing.component';
 import { TestFileSaverComponent } from './test-file-saver/test-file-saver.component';
-import { TestGanttChartComponent } from './test-gantt-chart/test-gantt-chart.component';
+import { TestGanttChartModule } from './test-gantt-chart/test-gantt-chart.module';
 import { GanttChartAngularModule } from 'projects/gantt-chart-angular/src/public-api';
 import { GoogleMapsAngularModule } from 'projects/google-maps-angular/src/dist';
 import { AngularSocketModule } from 'projects/angular-socket/src/public-api';
@@ -20,11 +20,9 @@ const config = { url: 'http://localhost:9898/', options: {} };
 
 @NgModule({
   declarations: [
-    AppComponent,
     ChartLibTestingComponent,
     ChartAngularComponent,
-    TestFileSaverComponent,
-    TestGanttChartComponent
+    TestFileSaverComponent
   ], exports: [
   ],
   imports: [
@@ -33,7 +31,9 @@ const config = { url: 'http://localhost:9898/', options: {} };
     FormsModule,
     GanttChartAngularModule,
     AngularSocketModule.forRoot(config),
-    SocketIoNgxModule.forRoot(config)
+    SocketIoNgxModule.forRoot(config),
+    TestGanttChartModule,
+    AppComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
