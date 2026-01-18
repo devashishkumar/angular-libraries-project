@@ -15,15 +15,14 @@ import { FileUploadAngularComponent } from 'projects/file-upload-angular/src/pub
   imports: [
     CommonModule,
     FormsModule,
-    GoogleMapsAngularComponent,
-    FileUploadAngularComponent,
     GanttChartAngularModule,
     GoogleMapsAngularModule,
     AngularSocketModule,
     SocketIoNgxModule
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [AngularSocketService]
 })
 export class AppComponent implements OnInit {
   title = 'ashish-gmap-library';
@@ -113,6 +112,7 @@ export class AppComponent implements OnInit {
 
   constructor(private socketServiceObj: AngularSocketService) {}
   ngOnInit() {
+    console.log('App Component Loaded');
   }
 
   /**

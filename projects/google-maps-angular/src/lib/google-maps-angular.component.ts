@@ -25,6 +25,7 @@ export class GoogleMapsAngularComponent implements OnInit {
   constructor(private mapsServiceObj: GoogleMapsAngularService) { }
 
   ngOnInit(): void {
+    console.log('Google Maps Angular Component Loaded');
     if (!document.getElementById('googlemaps')) {
       const googleMapScript = document.createElement('SCRIPT');
       const googleMapsKey = this.mapsServiceObj['googleMapsKey'];
