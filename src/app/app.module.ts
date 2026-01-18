@@ -32,7 +32,6 @@ const config = { url: 'http://localhost:9898/', options: {} };
     AppRoutingModule,
     FormsModule,
     GanttChartAngularModule,
-    GoogleMapsAngularModule.forRoot({googleMapsKey: 'AIzaSyBM-Pje26mgUYOfDwfVEAUCZNp-3W8GjwA'}),
     AngularSocketModule.forRoot(config),
     SocketIoNgxModule.forRoot(config)
   ],
