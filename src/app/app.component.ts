@@ -115,7 +115,6 @@ export class AppComponent implements OnInit {
 
   constructor(private socketServiceObj: AngularSocketService) {}
   ngOnInit() {
-    console.log('App Component Loaded');
   }
 
   /**
@@ -128,10 +127,8 @@ export class AppComponent implements OnInit {
   }
 
   fileUploadHandler(data: any) {
-    console.log(data, "36");
   }
   handleFiles(data) {
-    console.log(data, "34");
     this.files = data.validFiles;
   }
   fileUpload() {

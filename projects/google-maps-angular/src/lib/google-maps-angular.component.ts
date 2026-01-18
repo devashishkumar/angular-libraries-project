@@ -9,7 +9,11 @@ declare var google: any;
   standalone: true,
   imports: [CommonModule],
   templateUrl: './google-maps-angular.component.html',
-  styleUrls: ['./google-maps-angular.component.css']
+  styleUrls: ['./google-maps-angular.component.css'],
+  providers: [
+    GoogleMapsAngularService,
+    { provide: GoogleMapsAngularService, useValue: { googleMapsKey: 'AIzaSyBM-Pje26mgUYOfDwfVEAUCZNp-3W8GjwA' } }
+  ]
 })
 export class GoogleMapsAngularComponent implements OnInit {
   @Input() latLong: any = {};
@@ -27,22 +31,31 @@ export class GoogleMapsAngularComponent implements OnInit {
   ngOnInit(): void {
     console.log('Google Maps Angular Component Loaded');
     if (!document.getElementById('googlemaps')) {
-      const googleMapScript = document.createElement('SCRIPT');
+      const googleMapScript = document.createElement('script') as HTMLScriptElement;
       const googleMapsKey = this.mapsServiceObj['googleMapsKey'];
-      googleMapScript.setAttribute(
-        'src',
-        `https://maps.googleapis.com/maps/api/js?key=${googleMapsKey}&**callback=initMap`
-      );
-      googleMapScript.setAttribute('id', 'googlemaps')
-      googleMapScript.setAttribute('defer', '');
-      googleMapScript.setAttribute('async', '');
+      console.log('Google Maps Key:', googleMapsKey);
+      googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsKey}&libraries=marker`;
+      googleMapScript.id = 'googlemaps';
+      googleMapScript.async = true;
+      
+      // Wait for the script to load before initializing the map
+      googleMapScript.onload = () => {
+        setTimeout(() => {
+          if (this.mapContainer && this.mapContainer.nativeElement) {
+            this.loadMap();
+          }
+        }, 500);
+      };
+      
       document.head.appendChild(googleMapScript);
+    } else {
+      // Script already loaded, initialize map
+      setTimeout(() => {
+        if (this.mapContainer && this.mapContainer.nativeElement) {
+          this.loadMap();
+        }
+      }, 2000);
     }
-    setTimeout(() => {
-      if (this.mapContainer && this.mapContainer.nativeElement) {
-        this.loadMap();
-      }
-    }, 2000);
   }
 
   /**
@@ -99,20 +112,46 @@ export class GoogleMapsAngularComponent implements OnInit {
         const currentLong = currentMarker.long;
         const currentType = currentMarker.type;
 
-        const marker = new google.maps.Marker({
+        // Create a container for the marker content
+        const markerContent = document.createElement('div');
+        markerContent.className = 'advanced-marker-content';
+        
+        // Add icon if provided
+        if (this.googleMapDefaultIcon) {
+          const icon = document.createElement('img');
+          icon.src = this.googleMapDefaultIcon;
+          icon.style.width = '45px';
+          icon.style.height = '45px';
+          icon.style.cursor = 'pointer';
+          markerContent.appendChild(icon);
+        }
+        
+        // Add label if provided
+        if (this.markers && this.markers[i] && this.markers[i].labelDetails) {
+          const label = document.createElement('div');
+          label.className = 'marker-label';
+          label.textContent = this.markers[i].labelDetails.text || '';
+          label.style.fontWeight = this.markers[i].labelDetails.fontWeight || 'normal';
+          label.style.fontSize = '12px';
+          label.style.textAlign = 'center';
+          markerContent.appendChild(label);
+        }
+        const marker = new google.maps.marker.AdvancedMarkerElement({
           position: new google.maps.LatLng(currentLat, currentLong),
           map: this.nMap,
-          icon: this.googleMapDefaultIcon ?
-            this.markerIconConfiguration(this.googleMapDefaultIcon, 22) : '',
-          label: this.markers && this.markers[i] ? this.markers[i].labelDetails : {}
+          content: markerContent,
+          title: this.markers && this.markers[i] ? this.markers[i].labelDetails?.text : ''
         });
 
-        marker.setValues({ id: i, type: currentType });
-        ((markerObj, l) => {
-          google.maps.event.addListener(markerObj, 'click', () => {
-            this.markerClicked.emit({ rowClicked: l });
-          });
-        })(marker, i);
+        // Store custom data on the marker
+        (marker as any).id = i;
+        (marker as any).type = currentType;
+        
+        // Add click listener
+        marker.addListener('click', () => {
+          this.markerClicked.emit({ rowClicked: i });
+        });
+        
         this.customMarkers.push(marker);
       });
     }
