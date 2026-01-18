@@ -22,7 +22,10 @@ import { FileUploadAngularComponent } from 'projects/file-upload-angular/src/pub
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [AngularSocketService]
+  providers: [
+    AngularSocketService,
+    { provide: 'config', useValue: { url: 'http://localhost:9898/', options: {} } }
+  ]
 })
 export class AppComponent implements OnInit {
   title = 'ashish-gmap-library';
