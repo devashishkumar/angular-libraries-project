@@ -1,1 +1,0 @@
-{"ast":null,"code":"/*\n * Public API Surface of socket-io-ngx\n */\nexport * from './lib/socket-io-ngx.service';\nexport * from './lib/socket-io-ngx.component';\nexport * from './lib/socket-io-ngx.module';","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

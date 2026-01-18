@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:maps": "ng build google-maps-angular && node -e \"const pkg = require('./dist/google-maps-angular/package.json'); delete pkg.scripts; require('fs').writeFileSync('./dist/google-maps-angular/package.json', JSON.stringify(pkg, null, 2))\"",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

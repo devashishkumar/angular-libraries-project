@@ -1,1 +1,0 @@
-{"ast":null,"code":"/*\n * Public API Surface of file-saver-angular\n */\nexport * from './lib/file-saver-angular.service';\nexport * from './lib/file-saver-angular.component';\nexport * from './lib/file-saver-angular.module';","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

@@ -1,1 +1,0 @@
-{"ast":null,"code":"/*\n * Public API Surface of angular-socket\n */\nexport * from './lib/angular-socket.service';\nexport * from './lib/angular-socket.component';\nexport * from './lib/angular-socket.module';","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

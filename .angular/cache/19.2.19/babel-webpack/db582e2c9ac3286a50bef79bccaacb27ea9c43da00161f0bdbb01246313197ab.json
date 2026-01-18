@@ -1,1 +1,0 @@
-{"ast":null,"code":"/*\n * Public API Surface of google-maps-angular\n */\nexport * from './lib/google-maps-angular.service';\nexport * from './lib/google-maps-angular.component';\nexport * from './lib/google-maps-angular.module';","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

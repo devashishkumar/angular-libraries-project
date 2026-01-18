@@ -28,3 +28,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 npm install @types/socket.io-client --save
+
+
+
+## To generate angular packages
+
+```sh
+ng generate library my-lib
+ng build my-lib
+cd dist/my-lib
+npm publish --access public
+```
